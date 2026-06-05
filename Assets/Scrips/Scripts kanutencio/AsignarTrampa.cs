@@ -2,15 +2,26 @@ using UnityEngine;
 
 public class AsignarTrampa : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("Trampa")]
+    public Sprite ImagenTrampa;
+    public GameObject Trampa;
+
+
+    public IntermediarioObjetos InterObj;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+    public void AsigTrampa()
+    {
+        InterObj.Objeto = Trampa;
+    }
+
 }
