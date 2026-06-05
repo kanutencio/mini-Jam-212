@@ -4,6 +4,7 @@ public class IntermediarioObjetos : MonoBehaviour
 {
     public GameObject Objeto;
     public int Nobjetos;
+
     void Start()
     {
         
