@@ -9,14 +9,14 @@ public class TopButtonPanel : MonoBehaviour
 
     private List<GameObject> buttons = new List<GameObject>();
 
-    public void AddButton(GameObject source, GameObject target)
+    public void AddButton(GameObject button, Transform parent)
     {
         GameObject btn = Instantiate(buttonPrefab, buttonContainer);
-        btn.GetComponent<Button>().onClick.AddListener(() =>
+        /*btn.GetComponent<Button>().onClick.AddListener(() =>
         {
-            source.transform.SetParent(target.transform, false);
-            source.transform.localPosition = Vector3.zero;
-        });
+            button.transform.SetParent(parent, false);
+            button.transform.localPosition = Vector3.zero;
+        });*/
         buttons.Add(btn);
     }
 }

@@ -17,6 +17,7 @@ public class pruebabotones : MonoBehaviour
     }
 
     public void puchaleplay(){
-        p.AddButton(a,b);
+        Debug.Log("a");
+        p.AddButton(a,b.transform);
     }
 }
