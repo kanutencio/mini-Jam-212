@@ -1,0 +1,715 @@
+fileFormatVersion: 2
+guid: 8b63fbf7aa0ef2a46a4f5e50625cbbb4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5502169208714116866
+    second: Trampa Placeholder_0
+  - first:
+      213: 6890918238283446160
+    second: Trampa Placeholder_1
+  - first:
+      213: 4633553801290223509
+    second: Trampa Placeholder_2
+  - first:
+      213: 355336569783281334
+    second: Trampa Placeholder_3
+  - first:
+      213: 2549240613568182933
+    second: Trampa Placeholder_4
+  - first:
+      213: 7459311686485155380
+    second: Trampa Placeholder_5
+  - first:
+      213: 1118044502243242019
+    second: Trampa Placeholder_6
+  - first:
+      213: -501525922424109683
+    second: Trampa Placeholder_7
+  - first:
+      213: -1889223419851979726
+    second: Trampa Placeholder_8
+  - first:
+      213: -7618514042572604994
+    second: Trampa Placeholder_9
+  - first:
+      213: 8844878829706195151
+    second: Trampa Placeholder_10
+  - first:
+      213: 4791025047272752081
+    second: Trampa Placeholder_11
+  - first:
+      213: 2658760163871516354
+    second: Trampa Placeholder_12
+  - first:
+      213: -3236777277546448745
+    second: Trampa Placeholder_13
+  - first:
+      213: -1082153166293478512
+    second: Trampa Placeholder_14
+  - first:
+      213: -9208827750042723041
+    second: Trampa Placeholder_15
+  - first:
+      213: 4658369782315748718
+    second: Trampa Placeholder_16
+  - first:
+      213: -3762847140495409352
+    second: Trampa Placeholder_17
+  - first:
+      213: -6658961630824610224
+    second: Trampa Placeholder_18
+  - first:
+      213: 8552883462997870533
+    second: Trampa Placeholder_19
+  - first:
+      213: -1305432925349009694
+    second: Trampa Placeholder_20
+  - first:
+      213: 4538352467884553934
+    second: Trampa Placeholder_21
+  - first:
+      213: -7419977998074422846
+    second: Trampa Placeholder_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Trampa Placeholder_0
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 34
+        width: 830
+        height: 854
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f3f7b5eb1ab5c40800000000000000
+      internalID: 5502169208714116866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_1
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 876
+        width: 29
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0973529c0a571af50800000000000000
+      internalID: 6890918238283446160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_2
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 885
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f8095f1a0bd4040800000000000000
+      internalID: 4633553801290223509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_3
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 882
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b663a14ab86ee400800000000000000
+      internalID: 355336569783281334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_4
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 880
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59afab2e4d8b06320800000000000000
+      internalID: 2549240613568182933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_5
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 881
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e1edd257cc48760800000000000000
+      internalID: 7459311686485155380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_6
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 885
+        width: 14
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32079471d87148f00800000000000000
+      internalID: 1118044502243242019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_7
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 828
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d85c24ca4d83a09f0800000000000000
+      internalID: -501525922424109683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_8
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 849
+        width: 48
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 234cf562f4128c5e0800000000000000
+      internalID: -1889223419851979726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_9
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 44
+        width: 88
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb97228c7d9954690800000000000000
+      internalID: -7618514042572604994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_10
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 0
+        width: 59
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc0b206fe625fba70800000000000000
+      internalID: 8844878829706195151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_11
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 54
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d301b485e32d7240800000000000000
+      internalID: 4791025047272752081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_12
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 46
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c665864840d5e420800000000000000
+      internalID: 2658760163871516354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_13
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 49
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 798b9ca1738a413d0800000000000000
+      internalID: -3236777277546448745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_14
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 15
+        width: 75
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0935382cd6b6bf0f0800000000000000
+      internalID: -1082153166293478512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_15
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 45
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1d91f8a3fba33080800000000000000
+      internalID: -9208827750042723041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_16
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 23
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d085bc2aad5a040800000000000000
+      internalID: 4658369782315748718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_17
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 32
+        width: 15
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f3dae467ea7cbc0800000000000000
+      internalID: -3762847140495409352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_18
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 9
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0564ebd6dad9693a0800000000000000
+      internalID: -6658961630824610224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_19
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 18
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c70d49c132f1b670800000000000000
+      internalID: 8552883462997870533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_20
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 0
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e6297ebbab22ede0800000000000000
+      internalID: -1305432925349009694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_21
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec6b6c936877bfe30800000000000000
+      internalID: 4538352467884553934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trampa Placeholder_22
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 3
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c95f8fc251f60990800000000000000
+      internalID: -7419977998074422846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Trampa Placeholder_0: 5502169208714116866
+      Trampa Placeholder_1: 6890918238283446160
+      Trampa Placeholder_10: 8844878829706195151
+      Trampa Placeholder_11: 4791025047272752081
+      Trampa Placeholder_12: 2658760163871516354
+      Trampa Placeholder_13: -3236777277546448745
+      Trampa Placeholder_14: -1082153166293478512
+      Trampa Placeholder_15: -9208827750042723041
+      Trampa Placeholder_16: 4658369782315748718
+      Trampa Placeholder_17: -3762847140495409352
+      Trampa Placeholder_18: -6658961630824610224
+      Trampa Placeholder_19: 8552883462997870533
+      Trampa Placeholder_2: 4633553801290223509
+      Trampa Placeholder_20: -1305432925349009694
+      Trampa Placeholder_21: 4538352467884553934
+      Trampa Placeholder_22: -7419977998074422846
+      Trampa Placeholder_3: 355336569783281334
+      Trampa Placeholder_4: 2549240613568182933
+      Trampa Placeholder_5: 7459311686485155380
+      Trampa Placeholder_6: 1118044502243242019
+      Trampa Placeholder_7: -501525922424109683
+      Trampa Placeholder_8: -1889223419851979726
+      Trampa Placeholder_9: -7618514042572604994
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
