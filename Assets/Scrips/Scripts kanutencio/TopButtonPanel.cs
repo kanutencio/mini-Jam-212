@@ -12,11 +12,6 @@ public class TopButtonPanel : MonoBehaviour
     public void AddButton(GameObject button, Transform parent)
     {
         GameObject btn = Instantiate(buttonPrefab, buttonContainer);
-        /*btn.GetComponent<Button>().onClick.AddListener(() =>
-        {
-            button.transform.SetParent(parent, false);
-            button.transform.localPosition = Vector3.zero;
-        });*/
         buttons.Add(btn);
     }
 }

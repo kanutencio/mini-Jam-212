@@ -1,11 +1,13 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjetosAsignables : MonoBehaviour
 {
     public IntermediarioObjetos InterObj;
+    private Button Boton;
     void Start()
     {
-        
+        Boton = GetComponent<Button>();
     }
 
     
@@ -25,6 +27,7 @@ public class ObjetosAsignables : MonoBehaviour
         {
             Instantiate(InterObj.Objeto, transform.position, Quaternion.identity);
             InterObj.LessTrampa();
+            Boton.interactable = false;
         }
     }
 }
