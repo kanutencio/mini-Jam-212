@@ -70,14 +70,9 @@ public class AsignarTrampa : MonoBehaviour
 
     public void AsigBoton()
     {
-        Debug.Log("Intentando eliminar: " + gameObject.name);
-
-        foreach (GameObject obj in OL.ListaBotonesDesordenados)
-        {
-            Debug.Log("En la lista: " + obj.name);
-        }
-
+        Destroy(gameObject);
         TBP.AddButton(ContraparteBoton, TranPadre);
-        OL.ListaBotonesDesordenados.Remove(gameObject);
+        OL.ListaBotonesDesordenados.RemoveAll(obj => obj.name == gameObject.name.Replace("(Clone)", "")
+);
     }
 }
