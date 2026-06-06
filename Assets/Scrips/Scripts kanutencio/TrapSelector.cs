@@ -10,15 +10,15 @@ public class TrapSelector : MonoBehaviour
 
     private void OnEnable()
     {
-        for (int i = 0; i < 3; i++) {
-            if (OGList.ListaBotonesDesordenados[i] == null) {
-                return;
-            } 
-            else
+        for (int i = 0; i < 3; i++)
+        {
+            if (i >= OGList.ListaBotonesDesordenados.Count)
+                break;
+
+            if (OGList.ListaBotonesDesordenados[i] != null)
             {
                 AddButton(OGList.ListaBotonesDesordenados[i], padre);
             }
-                
         }
     }
 
@@ -31,7 +31,6 @@ public class TrapSelector : MonoBehaviour
     }
     public void AddButton(GameObject button, Transform parent)
     {
-        Debug.Log("Lista inicial");
         GameObject btn = Instantiate(button, parent);
         botones.Add(btn);
     }

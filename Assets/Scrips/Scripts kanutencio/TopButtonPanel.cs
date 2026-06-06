@@ -9,8 +9,6 @@ public class TopButtonPanel : MonoBehaviour
 
     public void AddButton(GameObject button, Transform parent)
     {
-        Debug.Log("Lista Final");
-
         GameObject btn = Instantiate(button, parent);
         buttons.Add(btn);
     }
