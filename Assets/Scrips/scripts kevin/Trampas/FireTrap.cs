@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum Direccion { Arriba, Abajo, Izquierda, Derecha }
 
@@ -22,23 +23,62 @@ public class FireTrap : MonoBehaviour
     public Transform firePointIzquierda;
     public Transform firePointDerecha;
 
+    [Header("Objetos Visuales (Sprites) por dirección")]
+    [Tooltip("Puedes meter aquí el objeto que tiene el dibujo de la trampa para cada lado. Se apagará/encenderá automáticamente.")]
+    public GameObject visualArriba;
+    public GameObject visualAbajo;
+    public GameObject visualIzquierda;
+    public GameObject visualDerecha;
+
     private float _timer;
     private bool orientada = false;
+
+    // Si es true, la trampa usará la rotación del Transform en vez de orientarse automáticamente hacia el camino.
+    [Header("Configuración Manual")]
+    [Tooltip("Activar para fijar la rotación de la trampa al colocarla en la escena")]
+    public bool manualRotation = false;
 
     void Start()
     {
         // Empieza cargada para disparar al instante la primera vez
         _timer = fireRate;
+        // Si se habilita la rotación manual, determinamos la dirección basada en la rotación actual del objeto
+        if (manualRotation)
+        {
+            UpdateDirectionFromRotation();
+            ActualizarVisual();
+            orientada = true;
+        }
     }
 
     void Update()
     {
-        if (!orientada)
+        // Test rotation: press R solo si el mouse está sobre esta trampa
+        bool mouseEncima = EstaCursorEncima();
+        if (mouseEncima && Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
-            orientada = OrientarHaciaCamino();
+            CycleDirection();
+            ActualizarVisual();
+            orientada = true;
         }
 
-        // El tiempo de recarga avanza siempre, independientemente de si hay héroe o no
+        // Manual rotation handling (once)
+        if (manualRotation && !orientada)
+        {
+            UpdateDirectionFromRotation();
+            ActualizarVisual();
+            orientada = true;
+        }
+        else if (!manualRotation && !orientada)
+        {
+            orientada = OrientarHaciaCamino();
+            if (orientada)
+            {
+                ActualizarVisual();
+            }
+        }
+
+        // Timer always advances
         _timer += Time.deltaTime;
 
         GameObject heroe = HeroSpawner.Instance != null ? HeroSpawner.Instance.GetHeroeActivo() : null;
@@ -49,7 +89,6 @@ public class FireTrap : MonoBehaviour
 
         Vector3 dirHeroe = (heroe.transform.position - transform.position).normalized;
         float dot = 0f;
-
         switch (direccion)
         {
             case Direccion.Arriba:    dot = Vector3.Dot(dirHeroe, Vector3.up); break;
@@ -57,7 +96,6 @@ public class FireTrap : MonoBehaviour
             case Direccion.Izquierda: dot = Vector3.Dot(dirHeroe, Vector3.left); break;
             case Direccion.Derecha:   dot = Vector3.Dot(dirHeroe, Vector3.right); break;
         }
-
         if (dot < 0.5f) return;
 
         if (_timer >= fireRate)
@@ -152,6 +190,71 @@ public class FireTrap : MonoBehaviour
             Direccion.Derecha   => 0f,
             _                   => 0f
         };
+    }
+
+    // Cycles direction for testing with the R key: Arriba → Derecha → Abajo → Izquierda
+    void CycleDirection()
+    {
+        switch (direccion)
+        {
+            case Direccion.Arriba:
+                direccion = Direccion.Derecha;
+                break;
+            case Direccion.Derecha:
+                direccion = Direccion.Abajo;
+                break;
+            case Direccion.Abajo:
+                direccion = Direccion.Izquierda;
+                break;
+            case Direccion.Izquierda:
+                direccion = Direccion.Arriba;
+                break;
+        }
+    }
+
+
+    // esto es para que  determine la dirección basada en la rotación Z del Transform (en grados)
+    void UpdateDirectionFromRotation()
+    {
+        float z = transform.eulerAngles.z;
+        z = (z % 360 + 360) % 360;
+        if (z >= 315 || z < 45)
+            direccion = Direccion.Derecha;
+        else if (z >= 45 && z < 135)
+            direccion = Direccion.Arriba;
+        else if (z >= 135 && z < 225)
+            direccion = Direccion.Izquierda;
+        else
+            direccion = Direccion.Abajo;
+    }
+
+    // esto es para que detecte si el mouse esta encima de la trampa
+    bool EstaCursorEncima()
+    {
+        Camera cam = Camera.main;
+        if (cam == null) return false;
+
+        Vector2 mouseWorld = cam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        Collider2D col = GetComponent<Collider2D>();
+        if (col == null) return false;
+
+        return col.OverlapPoint(mouseWorld);
+    }
+
+    // esto es para que al darle clic a la trampa rote solo esta
+    void OnMouseDown()
+    {
+        CycleDirection();
+        ActualizarVisual();
+        orientada = true;
+    }
+
+    void ActualizarVisual()
+    {
+        if (visualArriba != null) visualArriba.SetActive(direccion == Direccion.Arriba);
+        if (visualAbajo != null) visualAbajo.SetActive(direccion == Direccion.Abajo);
+        if (visualIzquierda != null) visualIzquierda.SetActive(direccion == Direccion.Izquierda);
+        if (visualDerecha != null) visualDerecha.SetActive(direccion == Direccion.Derecha);
     }
 
     Transform GetActiveFirePoint()

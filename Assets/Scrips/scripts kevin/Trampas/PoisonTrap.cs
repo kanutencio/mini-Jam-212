@@ -11,6 +11,10 @@ public class PoisonTrap : MonoBehaviour
     [Header("Referencias")]
     public GameObject poisonProjectilePrefab;
     public Transform puntoDisparo;
+    [Tooltip("Asigna aquí el objeto hijo que tiene el sprite del cañón (la parte que gira), para que la base se quede quieta.")]
+    public Transform cabezaDelCañon;
+    [Tooltip("Si el cañón mira hacia atrás o de lado, ajusta este valor (ej. 180, 90, -90)")]
+    public float offsetRotacion = 0f;
 
     private float timer = 0f;
     private GameObject heroeActivo;
@@ -41,7 +45,16 @@ public class PoisonTrap : MonoBehaviour
     {
         Vector3 dir = (objetivo - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        angle += offsetRotacion;
+        
+        if (cabezaDelCañon != null)
+        {
+            cabezaDelCañon.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
     }
 
     void Disparar()

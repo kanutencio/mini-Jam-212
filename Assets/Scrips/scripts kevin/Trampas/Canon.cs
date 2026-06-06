@@ -11,13 +11,15 @@ public class Canon : MonoBehaviour
     [Header("Referencias")]
     public GameObject balaPrefab;
     public Transform puntoDisparo;
+    [Tooltip("Asigna aquí el objeto hijo que tiene el sprite del cañón (la parte que gira), para que la base se quede quieta.")]
+    public Transform cabezaDelCañon;
 
     private float timer = 0f;
     private GameObject heroeActivo;
 
     void Update()
     {
-        heroeActivo = HeroSpawner.Instance.GetHeroeActivo();
+        heroeActivo = HeroSpawner.Instance != null ? HeroSpawner.Instance.GetHeroeActivo() : null;
 
         // El cañón solo dispara si hay un heroe en el rango
         timer += Time.deltaTime;
@@ -42,7 +44,15 @@ public class Canon : MonoBehaviour
     {
         Vector3 dir = (objetivo - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        
+        if (cabezaDelCañon != null)
+        {
+            cabezaDelCañon.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
     }
 
     void Disparar()
