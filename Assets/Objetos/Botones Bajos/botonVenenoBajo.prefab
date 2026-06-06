@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: edfa715b66ef0d04aa3d78adf8af4c3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 221c01e799cadb5489b2bfab096a23ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7883229883388245127}
   - component: {fileID: 9013241519791151555}
   m_Layer: 5
-  m_Name: botonFuego
+  m_Name: botonVenenoBajo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7883229883388245127}
         m_TargetAssemblyTypeName: AsignarTrampa, Assembly-CSharp
-        m_MethodName: AsigTrampa
+        m_MethodName: AsigBoton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -222,9 +222,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa56f9099a1996846999494149357bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AsignarTrampa
-  ImagenTrampa: {fileID: 21300000, guid: edfa715b66ef0d04aa3d78adf8af4c3f, type: 3}
+  ImagenTrampa: {fileID: 21300000, guid: 221c01e799cadb5489b2bfab096a23ae, type: 3}
   imagen: {fileID: 3986191663005292952}
   Trampa: {fileID: 5186206630436644528, guid: 9c1a1eedda4f8104cb9574fe2603ede7, type: 3}
+  ContraparteBoton: {fileID: 6862939308952647993, guid: a491267722e825b4c860dbc608cf2b99, type: 3}
   velocidadRotacion: 90
   InterObj: {fileID: 0}
 --- !u!114 &9013241519791151555

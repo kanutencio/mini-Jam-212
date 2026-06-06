@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7883229883388245127}
   - component: {fileID: 9013241519791151555}
   m_Layer: 5
-  m_Name: "botonCa\xF1on"
+  m_Name: "botonCa\xF1onAlto"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
