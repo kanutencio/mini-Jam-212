@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,18 @@ public class AsignarTrampa : MonoBehaviour
     public Sprite ImagenTrampa;
     [SerializeField] private Image imagen;
     public GameObject Trampa;
+    public GameObject ContraparteBoton;
 
+    [Header("Asignar esta trampa")]
+    private TopButtonPanel TBP;
+    private GameObject ObjTBP;
+    private GameObject Objpadre;
+    private Transform TranPadre;
+
+
+    [Header("Eliminar Trampa")]
+    private GameObject ObjOrganizacionList;
+    private OrganizacionLista OL;
 
     [SerializeField] private float velocidadRotacion = 90f;
     private Quaternion rotacionObjetivo;
@@ -21,6 +33,15 @@ public class AsignarTrampa : MonoBehaviour
     {
         ObInter = GameObject.Find("Intermediario de asignacion");
         InterObj= ObInter.GetComponent<IntermediarioObjetos>();
+
+        Objpadre = GameObject.Find("ButtonContainer");
+        TranPadre = Objpadre.GetComponent<Transform>();
+
+        ObjTBP = GameObject.Find("TopPanel"); 
+        TBP = ObjTBP.GetComponent<TopButtonPanel>();
+
+        ObjOrganizacionList = GameObject.Find("Organizacion de Trampas");
+        OL = ObjOrganizacionList.GetComponent<OrganizacionLista>();
     }
     void Start()
     {
@@ -47,4 +68,16 @@ public class AsignarTrampa : MonoBehaviour
         InterObj.Objeto = Trampa;
     }
 
+    public void AsigBoton()
+    {
+        Debug.Log("Intentando eliminar: " + gameObject.name);
+
+        foreach (GameObject obj in OL.ListaBotonesDesordenados)
+        {
+            Debug.Log("En la lista: " + obj.name);
+        }
+
+        TBP.AddButton(ContraparteBoton, TranPadre);
+        OL.ListaBotonesDesordenados.Remove(gameObject);
+    }
 }
