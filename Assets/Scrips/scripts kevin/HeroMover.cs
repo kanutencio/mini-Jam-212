@@ -12,6 +12,12 @@ public class HeroMover : MonoBehaviour
     public Action onReachedEnd;
     public Action onDeath;
 
+    [Header("UI")]
+    [Tooltip("El objeto padre de la barra de vida (para evitar que rote con el héroe)")]
+    public Transform healthBarContainer;
+    [Tooltip("El sprite o imagen que representa la vida actual (se escalará en X)")]
+    public Transform barraVidaRelleno;
+
     private float vidaActual;
     private WaypointPath currentPath;
     private int targetWaypointIndex = 1;
@@ -22,6 +28,7 @@ public class HeroMover : MonoBehaviour
     void Awake()
     {
         vidaActual = vidaMaxima;
+        ActualizarBarraVida();
     }
 
     public void SetPath(WaypointPath path)
@@ -40,6 +47,12 @@ public class HeroMover : MonoBehaviour
 
     void Update()
     {
+        // Evitar que la barra de vida rote con el personaje
+        if (healthBarContainer != null)
+        {
+            healthBarContainer.rotation = Quaternion.identity;
+        }
+
         if (!isMoving || currentPath == null) return;
         Mover();
         UpdateProgress();
@@ -97,11 +110,24 @@ public class HeroMover : MonoBehaviour
     public void RecibirDaño(float cantidad)
     {
         vidaActual -= cantidad;
+        ActualizarBarraVida();
+
         if (vidaActual <= 0f)
         {
             isMoving = false;
             onDeath?.Invoke();
             Destroy(gameObject);
+        }
+    }
+
+    void ActualizarBarraVida()
+    {
+        if (barraVidaRelleno != null)
+        {
+            // Escala el objeto en el eje X según el porcentaje de vida restante
+            Vector3 scale = barraVidaRelleno.localScale;
+            scale.x = Mathf.Clamp01(vidaActual / vidaMaxima);
+            barraVidaRelleno.localScale = scale;
         }
     }
 
