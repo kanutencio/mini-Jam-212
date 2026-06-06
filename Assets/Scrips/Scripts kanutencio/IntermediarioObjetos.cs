@@ -4,6 +4,7 @@ public class IntermediarioObjetos : MonoBehaviour
 {
     public GameObject Objeto;
     public int Nobjetos;
+
     void Start()
     {
         
@@ -12,7 +13,7 @@ public class IntermediarioObjetos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void LessTrampa()
     {

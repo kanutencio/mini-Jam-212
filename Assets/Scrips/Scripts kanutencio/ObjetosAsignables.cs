@@ -1,14 +1,16 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjetosAsignables : MonoBehaviour
 {
     public IntermediarioObjetos InterObj;
+    private Button Boton;
     void Start()
     {
-        
+        Boton = GetComponent<Button>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
 
@@ -25,6 +27,7 @@ public class ObjetosAsignables : MonoBehaviour
         {
             Instantiate(InterObj.Objeto, transform.position, Quaternion.identity);
             InterObj.LessTrampa();
+            Boton.interactable = false;
         }
     }
 }
