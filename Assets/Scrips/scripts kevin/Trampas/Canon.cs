@@ -26,7 +26,7 @@ public class Canon : MonoBehaviour
     public float spriteOffset = 180f;
 
     private float timer = 0f;
-    private GameObject heroeActivo;
+    private GameObject objetivoActual; // current target (first active enemy)
 
     private void OnEnable()
     {
@@ -38,25 +38,30 @@ public class Canon : MonoBehaviour
     }
     void Update()
     {
-        heroeActivo = HeroSpawner.Instance != null ? HeroSpawner.Instance.GetHeroeActivo() : null;
-
-        // El cañón solo dispara si hay un heroe en el rango
-        timer += Time.deltaTime;
-
-        if (heroeActivo == null) return;
-
-        float distancia = Vector3.Distance(transform.position, heroeActivo.transform.position);
-
-        if (distancia <= rango)
+        // Obtener el primer enemigo activo (soldado o héroe) desde HeroSpawner
+        GameObject objetivo = null;
+        var lista = HeroSpawner.Instance != null ? HeroSpawner.Instance.GetTodosLosEnemigosActivos() : null;
+        if (lista != null && lista.Count > 0)
         {
-            Apuntar(heroeActivo.transform.position);
-
-            if (timer >= tiempoEntreDisparos)
-            {
-                Disparar();
-                timer = 0f;
-            }
+            objetivo = lista[0]; // el primero en la lista es el que se spawnea primero
         }
+        if (objetivo == null) return;
+
+        // Calculamos distancia al objetivo seleccionado
+        float distancia = Vector3.Distance(transform.position, objetivo.transform.position);
+        if (distancia > rango) return;
+
+        // Apuntamos directamente al objetivo (soldado o héroe)
+        Apuntar(objetivo.transform.position);
+        objetivoActual = objetivo; // store for Disparar
+
+        if (timer >= tiempoEntreDisparos)
+        {
+            Disparar();
+            timer = 0f;
+        }
+
+        timer += Time.deltaTime;
     }
 
     void Apuntar(Vector3 objetivo)
@@ -93,13 +98,14 @@ public class Canon : MonoBehaviour
     {
         if (balaPrefab == null || puntoDisparo == null) return;
         AS.Play();
-        Vector3 dir = (heroeActivo.transform.position - puntoDisparo.position).normalized;
+        if (objetivoActual == null) return;
+        Vector3 dir = (objetivoActual.transform.position - puntoDisparo.position).normalized;
         GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, Quaternion.identity);
 
         Bala balaScript = bala.GetComponent<Bala>();
         if (balaScript != null)
         {
-            balaScript.Inicializar(heroeActivo.transform, dir, velocidadBala, daño);
+            balaScript.Inicializar(objetivoActual.transform, dir, velocidadBala, daño);
         }
     }
 

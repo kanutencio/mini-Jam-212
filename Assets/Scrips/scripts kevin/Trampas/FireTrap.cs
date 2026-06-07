@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// Direction enum kept for legacy visual support but not used for aiming
+public enum Direccion { Arriba, Abajo, Izquierda, Derecha }
 
 public class FireTrap : MonoBehaviour
 {
@@ -15,10 +15,13 @@ public class FireTrap : MonoBehaviour
     public GameObject flamePrefab;
 
     // La dirección ahora se calcula automáticamente
-    // We'll aim directly at the hero; the direction enum is no longer needed for aiming
+    private Direccion direccion;
 
     [Header("Puntos de disparo por dirección")]
-    public Transform firePoint; // Assign a child empty at the muzzle of the cannon
+    public Transform firePointArriba;
+    public Transform firePointAbajo;
+    public Transform firePointIzquierda;
+    public Transform firePointDerecha;
 
     [Header("Objetos Visuales (Sprites) por dirección")]
     [Tooltip("Puedes meter aquí el objeto que tiene el dibujo de la trampa para cada lado. Se apagará/encenderá automáticamente.")]
@@ -55,20 +58,31 @@ public class FireTrap : MonoBehaviour
 
     void Update()
     {
-        // Optional manual rotation via R key (debug)
+        // Test rotation: press R solo si el mouse está sobre esta trampa
         bool mouseEncima = EstaCursorEncima();
         if (mouseEncima && Keyboard.current != null && Keyboard.current.rKey.wasPressedThisFrame)
         {
-            // rotate 90° for quick testing
-            transform.Rotate(0f, 0f, 90f);
+            CycleDirection();
+            ActualizarVisual();
+            orientada = true;
         }
 
         // Manual rotation handling (once)
         if (manualRotation && !orientada)
         {
             UpdateDirectionFromRotation();
+            ActualizarVisual();
             orientada = true;
         }
+        else if (!manualRotation && !orientada)
+        {
+            orientada = OrientarHaciaCamino();
+            if (orientada)
+            {
+                ActualizarVisual();
+            }
+        }
+
         // Timer always advances
         _timer += Time.deltaTime;
 
@@ -78,10 +92,16 @@ public class FireTrap : MonoBehaviour
         float distancia = Vector3.Distance(transform.position, heroe.transform.position);
         if (distancia > rango) return;
 
-        // Aim instantly at hero
         Vector3 dirHeroe = (heroe.transform.position - transform.position).normalized;
-        float angle = Mathf.Atan2(dirHeroe.y, dirHeroe.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        float dot = 0f;
+        switch (direccion)
+        {
+            case Direccion.Arriba:    dot = Vector3.Dot(dirHeroe, Vector3.up); break;
+            case Direccion.Abajo:     dot = Vector3.Dot(dirHeroe, Vector3.down); break;
+            case Direccion.Izquierda: dot = Vector3.Dot(dirHeroe, Vector3.left); break;
+            case Direccion.Derecha:   dot = Vector3.Dot(dirHeroe, Vector3.right); break;
+        }
+        if (dot < 0.5f) return;
 
         if (_timer >= fireRate)
         {
@@ -165,7 +185,17 @@ public class FireTrap : MonoBehaviour
         return true;
     }
 
-    // Deprecated: angle is now taken from the transform's Z rotation
+    float ObtenerAnguloDireccion()
+    {
+        return direccion switch
+        {
+            Direccion.Arriba    => 90f,
+            Direccion.Abajo     => 270f,
+            Direccion.Izquierda => 180f,
+            Direccion.Derecha   => 0f,
+            _                   => 0f
+        };
+    }
 
     // Cycles direction for testing with the R key: Arriba → Derecha → Abajo → Izquierda
     void CycleDirection()
@@ -226,12 +256,22 @@ public class FireTrap : MonoBehaviour
 
     void ActualizarVisual()
     {
-        // Visuals can be controlled via manual rotation if needed; left unchanged for legacy support
+        if (visualArriba != null) visualArriba.SetActive(direccion == Direccion.Arriba);
+        if (visualAbajo != null) visualAbajo.SetActive(direccion == Direccion.Abajo);
+        if (visualIzquierda != null) visualIzquierda.SetActive(direccion == Direccion.Izquierda);
+        if (visualDerecha != null) visualDerecha.SetActive(direccion == Direccion.Derecha);
     }
 
     Transform GetActiveFirePoint()
     {
-        return firePoint;
+        return direccion switch
+        {
+            Direccion.Arriba    => firePointArriba,
+            Direccion.Abajo     => firePointAbajo,
+            Direccion.Izquierda => firePointIzquierda,
+            Direccion.Derecha   => firePointDerecha,
+            _                   => null
+        };
     }
 
     void Shoot()
@@ -247,8 +287,7 @@ public class FireTrap : MonoBehaviour
             return;
         }
 
-        // Use the current rotation of the cannon as the firing angle
-        float angle = transform.eulerAngles.z;
+        float angle = ObtenerAnguloDireccion();
         GameObject flame = Instantiate(flamePrefab, activePoint.position, Quaternion.Euler(0, 0, angle));
         FlameHitbox hitbox = flame.GetComponent<FlameHitbox>();
         if (hitbox != null) hitbox.Init(flameDuration, daño);
