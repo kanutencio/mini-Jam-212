@@ -57,6 +57,11 @@ public class AsignarTrampa : MonoBehaviour
 
     void Update()
     {
+        if (InterObj.Nobjetos <= 0)
+        {
+            Boton.interactable = false;
+        }
+
         if (Trampa == InterObj.Objeto)
         {
             rotacionObjetivo = Quaternion.Euler(0, 0, 60);
