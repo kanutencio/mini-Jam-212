@@ -4,9 +4,12 @@ using UnityEngine.UI;
 public class ObjetosAsignables : MonoBehaviour
 {
     public IntermediarioObjetos InterObj;
+    public GameObject OBInterObj;
     private Button Boton;
     void Start()
     {
+        OBInterObj = GameObject.Find("Intermediario de asignacion");
+        InterObj = OBInterObj.GetComponent<IntermediarioObjetos>();
         Boton = GetComponent<Button>();
     }
 
