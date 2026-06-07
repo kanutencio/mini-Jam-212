@@ -119,6 +119,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &5206303
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5206304}
+  m_Layer: 0
+  m_Name: Fin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5206304
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5206303}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.58, y: 3.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &28005877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -223,11 +254,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+--- !u!1 &72427766
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72427767}
+  m_Layer: 0
+  m_Name: Inicio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72427767
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72427766}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.72, y: 0.64, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 750212917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &79917271
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +385,68 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &116252182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 116252183}
+  m_Layer: 0
+  m_Name: WP00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &116252183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116252182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.18, y: 0.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 750212917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &155110250
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 155110251}
+  m_Layer: 0
+  m_Name: WP01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &155110251
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155110250}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.34, y: 3.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &179041149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -423,6 +551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -547,7 +679,7 @@ GameObject:
   - component: {fileID: 200218598}
   - component: {fileID: 200218597}
   m_Layer: 0
-  m_Name: Caminos
+  m_Name: Camino nivel 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -881,6 +1013,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -963,6 +1099,69 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &464599708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 464599710}
+  - component: {fileID: 464599709}
+  m_Layer: 0
+  m_Name: Camino nivel 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &464599709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464599708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529c7638ca612364ab61c1e56d866d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaypointPath
+  waypoints:
+  - {fileID: 1304031462}
+  - {fileID: 977012954}
+  - {fileID: 155110251}
+  - {fileID: 1101391012}
+  - {fileID: 974765431}
+  - {fileID: 1701497704}
+  - {fileID: 1966582938}
+  - {fileID: 5206304}
+  pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  waypointRadius: 0.3
+--- !u!4 &464599710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464599708}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 33, y: -3.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1304031462}
+  - {fileID: 977012954}
+  - {fileID: 155110251}
+  - {fileID: 1101391012}
+  - {fileID: 974765431}
+  - {fileID: 1701497704}
+  - {fileID: 1966582938}
+  - {fileID: 5206304}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &485522238 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1051335571850232610, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
@@ -1077,6 +1276,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1191,6 +1394,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1409,6 +1616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1419,6 +1630,87 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1051335571850232610, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
   m_PrefabInstance: {fileID: 581752858}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &597657194
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 597657196}
+  - component: {fileID: 597657195}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &597657195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597657194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61431817772ffc4bbbe2fb9b59cdfe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  caminosPorNivel:
+  - {fileID: 200218597}
+  - {fileID: 750212916}
+  - {fileID: 464599709}
+  nivelActual: 0
+  heroesEliminados: 0
+--- !u!4 &597657196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597657194}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.2489, y: -0.74277, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &601326861
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 601326862}
+  m_Layer: 0
+  m_Name: Fin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &601326862
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601326861}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.14, y: 3.17, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 750212917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &608537159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +1916,61 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1051335571850232610, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
   m_PrefabInstance: {fileID: 1679367260}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &750212915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 750212917}
+  - component: {fileID: 750212916}
+  m_Layer: 0
+  m_Name: Camino nivel 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &750212916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750212915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529c7638ca612364ab61c1e56d866d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WaypointPath
+  waypoints:
+  - {fileID: 72427767}
+  - {fileID: 116252183}
+  - {fileID: 1548578695}
+  - {fileID: 601326862}
+  pathColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  waypointRadius: 0.3
+--- !u!4 &750212917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750212915}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.39, y: -3.11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 72427767}
+  - {fileID: 116252183}
+  - {fileID: 1548578695}
+  - {fileID: 601326862}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751186748
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +2166,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1928,6 +2279,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2156,6 +2511,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2171,6 +2530,68 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1051335571850232610, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
   m_PrefabInstance: {fileID: 179041149}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &974765430
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 974765431}
+  m_Layer: 0
+  m_Name: WP03
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &974765431
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974765430}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.97, y: 0.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &977012953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 977012954}
+  m_Layer: 0
+  m_Name: WP00
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &977012954
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977012953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.34, y: 0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &982317199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2275,6 +2696,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2458,6 +2883,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1101391011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1101391012}
+  m_Layer: 0
+  m_Name: WP02
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1101391012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101391011}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.97, y: 3.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112130448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2715,6 +3171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2824,6 +3284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2933,6 +3397,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3051,6 +3519,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -3536,6 +4008,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3655,11 +4131,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+--- !u!1 &1304031461
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304031462}
+  m_Layer: 0
+  m_Name: Inicio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1304031462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304031461}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.23, y: 0.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1343704232
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,6 +4419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4017,6 +4532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4126,6 +4645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4136,6 +4659,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1051335571850232610, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
   m_PrefabInstance: {fileID: 1542673775}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1548578694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1548578695}
+  m_Layer: 0
+  m_Name: WP01
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1548578695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1548578694}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.18, y: 3.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 750212917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1563605541
 GameObject:
   m_ObjectHideFlags: 0
@@ -4310,6 +4864,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4510,6 +5068,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4624,6 +5186,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4830,6 +5396,10 @@ PrefabInstance:
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
     - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
@@ -4950,11 +5520,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+--- !u!1 &1701497703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1701497704}
+  m_Layer: 0
+  m_Name: WP04
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1701497704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701497703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.96, y: 0.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1718235166
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,6 +5776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5560,6 +6169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5669,6 +6282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5814,6 +6431,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6020,6 +6641,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1051335571850232610, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
   m_PrefabInstance: {fileID: 1687969297735634300}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1966582937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966582938}
+  m_Layer: 0
+  m_Name: WP05
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1966582938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966582937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.96, y: 3.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 464599710}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1982232633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6124,6 +6776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6513,6 +7169,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6653,6 +7313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6868,6 +7532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sitio Para Trampas
       objectReference: {fileID: 0}
+    - target: {fileID: 6581640933435892565, guid: a7f3d8de9bdf28d4281bc38d2776012c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bd87d3ad3191d624791e1d417a87b3c1, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6889,3 +7557,6 @@ SceneRoots:
   - {fileID: 651955390}
   - {fileID: 1112761477}
   - {fileID: 200218598}
+  - {fileID: 750212917}
+  - {fileID: 464599710}
+  - {fileID: 597657196}

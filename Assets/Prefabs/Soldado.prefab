@@ -81,7 +81,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 6595276011548530511, guid: 4992d2329b903c243a65a1b39a57e78e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -107,6 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeroMover
   velocidad: 3
   vidaMaxima: 100
+  puedeMoverse: 1
+  tiempoPausaEnCasilla: 0
+  prefabParticulasPaso: {fileID: 0}
   healthBarContainer: {fileID: 3159925344143298740}
   barraVidaRelleno: {fileID: 96733848862173105}
 --- !u!1 &4758701269343969475

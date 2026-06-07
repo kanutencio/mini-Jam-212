@@ -17,6 +17,14 @@ public class Canon : MonoBehaviour
     [Tooltip("Asigna aquí el objeto hijo que tiene el sprite del cañón (la parte que gira), para que la base se quede quieta.")]
     public Transform cabezaDelCañon;
 
+    [Header("Giro e Imagen")]
+    [Tooltip("Si está activo, apuntará de golpe al enemigo. Si no, girará poco a poco.")]
+    public bool apuntadoInstantaneo = true;
+    [Tooltip("Velocidad de giro del cañón si el apuntado instantáneo está desactivado.")]
+    public float velocidadGiro = 20f;
+    [Tooltip("Offset en grados si tu sprite original está girado (ej: 180 si mira a la izquierda de base, 0 si mira a la derecha).")]
+    public float spriteOffset = 180f;
+
     private float timer = 0f;
     private GameObject heroeActivo;
 
@@ -49,32 +57,32 @@ public class Canon : MonoBehaviour
 
     void Apuntar(Vector3 objetivo)
     {
-        // Se calcula la dirección desde la posición GLOBAL del cañón (transform raíz),
-        // ignorando cualquier rotación heredada del padre para evitar el temblado.
-        Vector3 dir = (objetivo - transform.position).normalized;
+        // Forzamos el cálculo en 2D (Vector2) para ignorar cualquier desfase en el eje Z
+        Vector2 targetPos2D = new Vector2(objetivo.x, objetivo.y);
+        Vector2 myPos2D = new Vector2(transform.position.x, transform.position.y);
+        
+        Vector2 dir = (targetPos2D - myPos2D).normalized;
+        
+        // Evitamos calcular si están en el mismo punto
+        if (dir.sqrMagnitude < 0.001f) return;
+
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        // Offset del sprite: 180° si el sprite mira a la izquierda, 0° si mira a la derecha.
-        float spriteOffset = 180f;
-
         Quaternion rotacionObjetivo = Quaternion.Euler(0f, 0f, angle + spriteOffset);
 
-        if (cabezaDelCañon != null)
+        Transform objetoARotar = cabezaDelCañon != null ? cabezaDelCañon : transform;
+
+        if (apuntadoInstantaneo)
         {
-            // Se aplica la rotación en espacio mundo directamente (sin herencia del padre)
-            // con un Slerp suave para eliminar el temblado frame a frame.
-            cabezaDelCañon.rotation = Quaternion.Slerp(
-                cabezaDelCañon.rotation,
-                rotacionObjetivo,
-                Time.deltaTime * 20f   // velocidad de giro: sube si quieres más instantáneo
-            );
+            // Apuntado instantáneo
+            objetoARotar.rotation = rotacionObjetivo;
         }
         else
         {
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
+            // Apuntado suave con Slerp
+            objetoARotar.rotation = Quaternion.Slerp(
+                objetoARotar.rotation,
                 rotacionObjetivo,
-                Time.deltaTime * 20f
+                Time.deltaTime * velocidadGiro
             );
         }
     }
