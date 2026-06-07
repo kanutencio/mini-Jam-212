@@ -18,6 +18,9 @@ public class AsignarTrampa : MonoBehaviour
     private GameObject Objpadre;
     private Transform TranPadre;
 
+    [Header("Sonido")]
+    private Button Boton;
+    private AudioSource AS;
 
     [Header("Eliminar Trampa")]
     private GameObject ObjOrganizacionList;
@@ -31,6 +34,9 @@ public class AsignarTrampa : MonoBehaviour
 
     private void Awake()
     {
+        AS = GetComponent<AudioSource>();
+        Boton = GetComponent<Button>();
+
         ObInter = GameObject.Find("Intermediario de asignacion");
         InterObj= ObInter.GetComponent<IntermediarioObjetos>();
 
@@ -65,14 +71,24 @@ public class AsignarTrampa : MonoBehaviour
 
     public void AsigTrampa()
     {
+        AS.Play();
         InterObj.Objeto = Trampa;
     }
 
     public void AsigBoton()
     {
-        Destroy(gameObject);
+        Boton.interactable = false;
+        StartCoroutine("Sonido");
         TBP.AddButton(ContraparteBoton, TranPadre);
-        OL.ListaBotonesDesordenados.RemoveAll(obj => obj.name == gameObject.name.Replace("(Clone)", "")
-);
+        OL.ListaBotonesDesordenados.RemoveAll(obj => obj.name == gameObject.name.Replace("(Clone)", ""));
+        
+    }
+
+    IEnumerator Sonido()
+    {
+        AS.Play();
+        yield return new WaitForSeconds(0.4f);
+        Destroy(gameObject);
+        
     }
 }
