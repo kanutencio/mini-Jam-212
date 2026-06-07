@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: ac50aa641cc30994b85d1ff810aa948b
+guid: bd87d3ad3191d624791e1d417a87b3c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5620578422640045615
-    second: pinchosoff_0
+      213: -4085401030598319166
+    second: pinchosoff 1_0
   - first:
-      213: 1536780596812937604
-    second: pinchosoff_1
+      213: -3631126377954503893
+    second: pinchosoff 1_1
   - first:
-      213: 1945191325791165017
-    second: pinchosoff_2
+      213: 765570804520678986
+    second: pinchosoff 1_2
   - first:
-      213: -3712977782226491834
-    second: pinchosoff_3
+      213: -2268668037418152296
+    second: pinchosoff 1_3
   - first:
-      213: -8503334973683249391
-    second: pinchosoff_4
+      213: -895097611288496513
+    second: pinchosoff 1_4
   - first:
-      213: -7257633702908286852
-    second: pinchosoff_5
+      213: 7336172762025203955
+    second: pinchosoff 1_5
   - first:
-      213: 4964367486112499099
-    second: pinchosoff_6
+      213: 4660987670553959453
+    second: pinchosoff 1_6
   - first:
-      213: -3253532524458951213
-    second: pinchosoff_7
+      213: 7476938144756561687
+    second: pinchosoff 1_7
   - first:
-      213: 666186943053892712
-    second: pinchosoff_8
+      213: 1897237679318237422
+    second: pinchosoff 1_8
   - first:
-      213: 3885402746906324730
-    second: pinchosoff_9
+      213: -3363754769075453821
+    second: pinchosoff 1_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -64,7 +64,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -73,7 +73,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -127,23 +127,221 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pinchosoff_0
+      name: pinchosoff 1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 398
-        height: 265
+        x: 39
+        y: 211
+        width: 59
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f2e6fa9db4e400e40800000000000000
-      internalID: 5620578422640045615
+      spriteID: 2c32c26786dbd47c0800000000000000
+      internalID: -4085401030598319166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_1
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 235
+        width: 59
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b23987b3cc5ab9dc0800000000000000
+      internalID: -3631126377954503893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_2
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 233
+        width: 59
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a467ddd279adf9a00800000000000000
+      internalID: 765570804520678986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 210
+        width: 59
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e886c90721480e0800000000000000
+      internalID: -2268668037418152296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7639d70779f393f0800000000000000
+      internalID: -895097611288496513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_5
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 164
+        width: 39
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f8986322425fc560800000000000000
+      internalID: 7336172762025203955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_6
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 41
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1c18d567972fa040800000000000000
+      internalID: 4660987670553959453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_7
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 36
+        width: 54
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71778cdc0ab63c760800000000000000
+      internalID: 7476938144756561687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_8
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 0
+        width: 54
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee0004a0e97545a10800000000000000
+      internalID: 1897237679318237422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinchosoff 1_9
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 54
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3804bb50cda8151d0800000000000000
+      internalID: -3363754769075453821
       vertices: []
       indices: 
       edges: []
@@ -152,7 +350,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 007c2019f59de8d45b25e207957c2dac
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -162,16 +360,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pinchosoff_0: 5620578422640045615
-      pinchosoff_1: 1536780596812937604
-      pinchosoff_2: 1945191325791165017
-      pinchosoff_3: -3712977782226491834
-      pinchosoff_4: -8503334973683249391
-      pinchosoff_5: -7257633702908286852
-      pinchosoff_6: 4964367486112499099
-      pinchosoff_7: -3253532524458951213
-      pinchosoff_8: 666186943053892712
-      pinchosoff_9: 3885402746906324730
+      pinchosoff 1_0: -4085401030598319166
+      pinchosoff 1_1: -3631126377954503893
+      pinchosoff 1_2: 765570804520678986
+      pinchosoff 1_3: -2268668037418152296
+      pinchosoff 1_4: -895097611288496513
+      pinchosoff 1_5: 7336172762025203955
+      pinchosoff 1_6: 4660987670553959453
+      pinchosoff 1_7: 7476938144756561687
+      pinchosoff 1_8: 1897237679318237422
+      pinchosoff 1_9: -3363754769075453821
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
