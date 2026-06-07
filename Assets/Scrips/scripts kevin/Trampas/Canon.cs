@@ -42,16 +42,33 @@ public class Canon : MonoBehaviour
 
     void Apuntar(Vector3 objetivo)
     {
+        // Se calcula la dirección desde la posición GLOBAL del cañón (transform raíz),
+        // ignorando cualquier rotación heredada del padre para evitar el temblado.
         Vector3 dir = (objetivo - transform.position).normalized;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        
+
+        // Offset del sprite: 180° si el sprite mira a la izquierda, 0° si mira a la derecha.
+        float spriteOffset = 180f;
+
+        Quaternion rotacionObjetivo = Quaternion.Euler(0f, 0f, angle + spriteOffset);
+
         if (cabezaDelCañon != null)
         {
-            cabezaDelCañon.rotation = Quaternion.Euler(0f, 0f, angle);
+            // Se aplica la rotación en espacio mundo directamente (sin herencia del padre)
+            // con un Slerp suave para eliminar el temblado frame a frame.
+            cabezaDelCañon.rotation = Quaternion.Slerp(
+                cabezaDelCañon.rotation,
+                rotacionObjetivo,
+                Time.deltaTime * 20f   // velocidad de giro: sube si quieres más instantáneo
+            );
         }
         else
         {
-            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                rotacionObjetivo,
+                Time.deltaTime * 20f
+            );
         }
     }
 
