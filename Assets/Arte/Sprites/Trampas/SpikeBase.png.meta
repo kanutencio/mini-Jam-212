@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c0c359dce87c34c4c8987f8dfded2b64
+guid: a9c949721cfac92438d79d5cd10ba926
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 852771544053717653
-    second: Lanzallamas_0
+      213: 2661815248358070391
+    second: SpikeBase_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lanzallamas_0
+      name: SpikeBase_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 146
-        height: 363
+        width: 302
+        height: 254
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59a12ed7337a5db00800000000000000
-      internalID: 852771544053717653
+      spriteID: 778d9109ddaa0f420800000000000000
+      internalID: 2661815248358070391
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lanzallamas_0: 852771544053717653
+      SpikeBase_0: 2661815248358070391
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c0c359dce87c34c4c8987f8dfded2b64
+guid: 571c3857d6df02a4b95484dd6635da67
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 852771544053717653
-    second: Lanzallamas_0
+      213: -8566028455312386561
+    second: Chain_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 200
+  spritePixelsToUnits: 225
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lanzallamas_0
+      name: Chain_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 146
-        height: 363
+        width: 413
+        height: 38
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59a12ed7337a5db00800000000000000
-      internalID: 852771544053717653
+      spriteID: ff59731318a5f1980800000000000000
+      internalID: -8566028455312386561
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Lanzallamas_0: 852771544053717653
+      Chain_0: -8566028455312386561
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

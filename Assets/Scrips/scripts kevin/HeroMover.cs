@@ -12,11 +12,25 @@ public class HeroMover : MonoBehaviour
     public Action onReachedEnd;
     public Action onDeath;
 
+    [Header("Movimiento Casilla por Casilla")]
+    [Tooltip("Permite pausar o reanudar el movimiento desde código o inspector.")]
+    public bool puedeMoverse = true;
+    [Tooltip("Tiempo de pausa en segundos que hace el personaje al llegar a cada casilla antes de seguir.")]
+    public float tiempoPausaEnCasilla = 0f;
+
+    private float _timerPausa = 0f;
+
+    [Header("Efectos Visuales")]
+    [Tooltip("Prefab del sistema de partículas para cuando el personaje da un paso en una casilla.")]
+    public GameObject prefabParticulasPaso;
+
+    public Action onPaso; // Evento que se dispara en cada paso por si quieres programar más cosas de sonido o lógica.
+
     [Header("UI")]
     [Tooltip("El objeto padre de la barra de vida (para evitar que rote con el héroe)")]
     public Transform healthBarContainer;
-    [Tooltip("El sprite o imagen que representa la vida actual (se escalará en X)")]
-    public Transform barraVidaRelleno;
+    [Tooltip("La imagen de UI (Image) que representa la vida actual")]
+    public UnityEngine.UI.Image barraVidaRelleno;
 
     private float vidaActual;
     private WaypointPath currentPath;
@@ -25,9 +39,16 @@ public class HeroMover : MonoBehaviour
 
     public float Progress { get; private set; } = 0f;
 
+    private Vector3 _healthBarOffset;
+
     void Awake()
     {
         vidaActual = vidaMaxima;
+        if (healthBarContainer != null)
+        {
+            // Guardamos la distancia inicial (local) a la que estaba la barra
+            _healthBarOffset = healthBarContainer.localPosition;
+        }
         ActualizarBarraVida();
     }
 
@@ -47,15 +68,31 @@ public class HeroMover : MonoBehaviour
 
     void Update()
     {
-        // Evitar que la barra de vida rote con el personaje
-        if (healthBarContainer != null)
-        {
-            healthBarContainer.rotation = Quaternion.identity;
-        }
+        // CONDICIONAL: Si no tiene permiso de moverse, no avanza ni procesa movimiento
+        if (!puedeMoverse) return;
 
         if (!isMoving || currentPath == null) return;
+
+        // Si está haciendo una pausa en la casilla actual
+        if (_timerPausa > 0f)
+        {
+            _timerPausa -= Time.deltaTime;
+            return;
+        }
+
         Mover();
         UpdateProgress();
+    }
+
+    void LateUpdate()
+    {
+        if (healthBarContainer != null)
+        {
+            // Bloqueamos la rotación para que siempre esté horizontal
+            healthBarContainer.rotation = Quaternion.identity;
+            // Bloqueamos la posición en el mundo para que siempre esté justo arriba del héroe
+            healthBarContainer.position = transform.position + _healthBarOffset;
+        }
     }
 
     void Mover()
@@ -81,7 +118,17 @@ public class HeroMover : MonoBehaviour
         }
 
         if (Vector3.Distance(transform.position, targetPos) < 0.05f)
+        {
             targetWaypointIndex++;
+            _timerPausa = tiempoPausaEnCasilla; // Activa la pausa al tocar la casilla
+
+            // Lanzar efectos del paso
+            onPaso?.Invoke();
+            if (prefabParticulasPaso != null)
+            {
+                Instantiate(prefabParticulasPaso, transform.position, Quaternion.identity);
+            }
+        }
     }
 
     void UpdateProgress()
@@ -124,10 +171,7 @@ public class HeroMover : MonoBehaviour
     {
         if (barraVidaRelleno != null)
         {
-            // Escala el objeto en el eje X según el porcentaje de vida restante
-            Vector3 scale = barraVidaRelleno.localScale;
-            scale.x = Mathf.Clamp01(vidaActual / vidaMaxima);
-            barraVidaRelleno.localScale = scale;
+            barraVidaRelleno.fillAmount = Mathf.Clamp01(vidaActual / vidaMaxima);
         }
     }
 
