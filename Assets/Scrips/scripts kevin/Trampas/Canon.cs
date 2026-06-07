@@ -31,6 +31,10 @@ public class Canon : MonoBehaviour
     private void OnEnable()
     {
         AS = GetComponent<AudioSource>();
+        // Ensure we have a reference to the part that should rotate.
+        // If not assigned in the inspector, rotate the whole object.
+        if (cabezaDelCañon == null)
+            cabezaDelCañon = transform;
     }
     void Update()
     {
@@ -57,31 +61,29 @@ public class Canon : MonoBehaviour
 
     void Apuntar(Vector3 objetivo)
     {
-        // Forzamos el cálculo en 2D (Vector2) para ignorar cualquier desfase en el eje Z
-        Vector2 targetPos2D = new Vector2(objetivo.x, objetivo.y);
-        Vector2 myPos2D = new Vector2(transform.position.x, transform.position.y);
-        
-        Vector2 dir = (targetPos2D - myPos2D).normalized;
-        
-        // Evitamos calcular si están en el mismo punto
-        if (dir.sqrMagnitude < 0.001f) return;
+        // Use world space direction directly for simplicity.
+        Vector3 dirWorld = (objetivo - transform.position).normalized;
+        if (dirWorld.sqrMagnitude < 0.001f) return;
 
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        Quaternion rotacionObjetivo = Quaternion.Euler(0f, 0f, angle + spriteOffset);
+        // Angle in degrees where 0 points to the right (+X).
+        float angle = Mathf.Atan2(dirWorld.y, dirWorld.x) * Mathf.Rad2Deg;
+        // Apply any sprite offset (e.g., 180 if the sprite points left by default).
+        angle += spriteOffset;
 
-        Transform objetoARotar = cabezaDelCañon != null ? cabezaDelCañon : transform;
+        Quaternion objetivoRot = Quaternion.Euler(0f, 0f, angle);
+
+        // Rotate the cannon head (or the whole object if head not set).
+        Transform rotTarget = cabezaDelCañon != null ? cabezaDelCañon : transform;
 
         if (apuntadoInstantaneo)
         {
-            // Apuntado instantáneo
-            objetoARotar.rotation = rotacionObjetivo;
+            rotTarget.localRotation = objetivoRot;
         }
         else
         {
-            // Apuntado suave con Slerp
-            objetoARotar.rotation = Quaternion.Slerp(
-                objetoARotar.rotation,
-                rotacionObjetivo,
+            rotTarget.localRotation = Quaternion.Slerp(
+                rotTarget.localRotation,
+                objetivoRot,
                 Time.deltaTime * velocidadGiro
             );
         }

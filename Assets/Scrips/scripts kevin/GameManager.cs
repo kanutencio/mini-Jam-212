@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
-    void Start()
+    void OnEnable()
     {
         IniciarNivel();
     }

@@ -20,6 +20,10 @@ public class HeroMover : MonoBehaviour
 
     private float _timerPausa = 0f;
 
+    [Header("Coordenada Z")]
+    [Tooltip("Coordenada Z en la que debe moverse el personaje (para mantener el orden de capas en 2.5D).")]
+    public float posicionZ = 4f;
+
     [Header("Efectos Visuales")]
     [Tooltip("Prefab del sistema de partículas para cuando el personaje da un paso en una casilla.")]
     public GameObject prefabParticulasPaso;
@@ -61,7 +65,7 @@ public class HeroMover : MonoBehaviour
         if (path != null && path.WaypointCount > 0)
         {
             Vector3 start = path.GetWaypoint(0).position;
-            transform.position = new Vector3(start.x, start.y, 0f);
+            transform.position = new Vector3(start.x, start.y, posicionZ);
             isMoving = true;
         }
     }
@@ -105,9 +109,9 @@ public class HeroMover : MonoBehaviour
         }
 
         Vector3 targetPos = currentPath.GetWaypoint(targetWaypointIndex).position;
-        targetPos.z = 0f;
-        Vector3 current = new Vector3(transform.position.x, transform.position.y, 0f);
-
+        targetPos.z = posicionZ;
+        Vector3 current = new Vector3(transform.position.x, transform.position.y, posicionZ);
+ 
         Vector3 dir = (targetPos - current).normalized;
         transform.position = Vector3.MoveTowards(current, targetPos, velocidad * Time.deltaTime);
 

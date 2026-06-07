@@ -72,6 +72,13 @@ public class HeroSpawner : MonoBehaviour
             }
 
             Vector3 spawnPos = waypointPath.GetWaypoint(0).position;
+            
+            // Obtenemos la Z que el prefab tiene configurada en su HeroMover
+            float targetZ = 4f;
+            HeroMover moverPrefab = soldadoPrefab != null ? soldadoPrefab.GetComponent<HeroMover>() : null;
+            if (moverPrefab != null) targetZ = moverPrefab.posicionZ;
+            spawnPos.z = targetZ;
+
             GameObject soldado = Instantiate(soldadoPrefab, spawnPos, Quaternion.identity);
             enemigosActivos.Add(soldado);
             count++;
@@ -112,6 +119,13 @@ public class HeroSpawner : MonoBehaviour
         Debug.Log("[HeroSpawner] Instanciando al Héroe Final...");
 
         Vector3 spawnPos = waypointPath.GetWaypoint(0).position;
+        
+        // Obtenemos la Z que el prefab tiene configurada en su HeroMover
+        float targetZ = 4f;
+        HeroMover moverPrefab = heroPrefab != null ? heroPrefab.GetComponent<HeroMover>() : null;
+        if (moverPrefab != null) targetZ = moverPrefab.posicionZ;
+        spawnPos.z = targetZ;
+
         GameObject heroe = Instantiate(heroPrefab, spawnPos, Quaternion.identity);
         enemigosActivos.Add(heroe);
 

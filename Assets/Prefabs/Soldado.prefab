@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8738778358294551527}
   m_Layer: 0
   m_Name: Soldado
-  m_TagString: Untagged
+  m_TagString: Soldadito
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   vidaMaxima: 100
   puedeMoverse: 1
   tiempoPausaEnCasilla: 0
+  posicionZ: 1
   prefabParticulasPaso: {fileID: 0}
   healthBarContainer: {fileID: 3159925344143298740}
   barraVidaRelleno: {fileID: 96733848862173105}
