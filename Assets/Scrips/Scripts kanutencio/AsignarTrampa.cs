@@ -26,19 +26,34 @@ public class AsignarTrampa : MonoBehaviour
     private GameObject ObjOrganizacionList;
     private OrganizacionLista OL;
 
+    [Header("Modificacion Camara")]
+    private GameObject ObjetoCamara;
+    private CamaraScript ComponentCamara;
+
     [SerializeField] private float velocidadRotacion = 90f;
     private Quaternion rotacionObjetivo;
 
     private GameObject ObInter;
     public IntermediarioObjetos InterObj;
 
+    private GameObject ObTrapSelec;
+    private TrapSelector TrapSelec;
+
     private void Awake()
     {
+        //componentes de este objeto
         AS = GetComponent<AudioSource>();
         Boton = GetComponent<Button>();
 
+        //componentes de objetos externos
         ObInter = GameObject.Find("Intermediario de asignacion");
         InterObj= ObInter.GetComponent<IntermediarioObjetos>();
+
+        ObTrapSelec = GameObject.Find("DownPanel");
+        TrapSelec = ObTrapSelec.GetComponent<TrapSelector>();
+
+        ObjetoCamara = GameObject.Find("Main Camera");
+        ComponentCamara = ObjetoCamara.GetComponent<CamaraScript>();
 
         Objpadre = GameObject.Find("ButtonContainer");
         TranPadre = Objpadre.GetComponent<Transform>();
@@ -86,7 +101,8 @@ public class AsignarTrampa : MonoBehaviour
         StartCoroutine("Sonido");
         TBP.AddButton(ContraparteBoton, TranPadre);
         OL.ListaBotonesDesordenados.RemoveAll(obj => obj.name == gameObject.name.Replace("(Clone)", ""));
-        
+        ComponentCamara.CambiarPunto();
+        TrapSelec.CerrarPanel();
     }
 
     IEnumerator Sonido()

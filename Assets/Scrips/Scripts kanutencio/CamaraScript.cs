@@ -13,37 +13,53 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject Punto8;
 
     [Header("Configuración")]
-    [SerializeField] private float duracionMovimiento = 2f;
+    [SerializeField] private float velocidad = 3f;
 
     [SerializeField] private int puntoActual;
-
-    private Vector3 posicionInicial;
     private Vector3 destino;
-    private float tiempo;
-    private bool moviendose;
 
     void Update()
     {
-        if (moviendose)
+        switch (puntoActual)
         {
-            tiempo += Time.deltaTime;
+            case 1:
+                destino = Punto1.transform.position;
+                break;
 
-            float t = tiempo / duracionMovimiento;
+            case 2:
+                destino = Punto2.transform.position;
+                break;
 
-            t = Mathf.SmoothStep(0f, 1f, t);
+            case 3:
+                destino = Punto3.transform.position;
+                break;
 
-            transform.position = Vector3.Lerp(
-                posicionInicial,
-                destino,
-                t
-            );
+            case 4:
+                destino = Punto4.transform.position;
+                break;
 
-            if (tiempo >= duracionMovimiento)
-            {
-                transform.position = destino;
-                moviendose = false;
-            }
+            case 5:
+                destino = Punto5.transform.position;
+                break;
+
+            case 6:
+                destino = Punto6.transform.position;
+                break;
+
+            case 7:
+                destino = Punto7.transform.position;
+                break;
+
+            case 8:
+                destino = Punto8.transform.position;
+                break;
         }
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            destino,
+            velocidad * Time.deltaTime
+        );
     }
 
     public void CambiarPunto()
@@ -53,28 +69,6 @@ public class CamaraScript : MonoBehaviour
         if (puntoActual > 8)
         {
             puntoActual = 1;
-        }
-            
-
-        posicionInicial = transform.position;
-        destino = ObtenerDestino();
-        tiempo = 0f;
-        moviendose = true;
-    }
-
-    private Vector3 ObtenerDestino()
-    {
-        switch (puntoActual)
-        {
-            case 1: return Punto1.transform.position;
-            case 2: return Punto2.transform.position;
-            case 3: return Punto3.transform.position;
-            case 4: return Punto4.transform.position;
-            case 5: return Punto5.transform.position;
-            case 6: return Punto6.transform.position;
-            case 7: return Punto7.transform.position;
-            case 8: return Punto8.transform.position;
-            default: return transform.position;
         }
     }
 
