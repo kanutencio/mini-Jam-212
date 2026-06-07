@@ -8,6 +8,9 @@ public class Canon : MonoBehaviour
     public float tiempoEntreDisparos = 2f;
     public float rango = 5f;
 
+    [Header("Sonido")]
+    [SerializeField] private AudioSource AS;
+
     [Header("Referencias")]
     public GameObject balaPrefab;
     public Transform puntoDisparo;
@@ -17,6 +20,10 @@ public class Canon : MonoBehaviour
     private float timer = 0f;
     private GameObject heroeActivo;
 
+    private void OnEnable()
+    {
+        AS = GetComponent<AudioSource>();
+    }
     void Update()
     {
         heroeActivo = HeroSpawner.Instance != null ? HeroSpawner.Instance.GetHeroeActivo() : null;
@@ -75,7 +82,7 @@ public class Canon : MonoBehaviour
     void Disparar()
     {
         if (balaPrefab == null || puntoDisparo == null) return;
-
+        AS.Play();
         Vector3 dir = (heroeActivo.transform.position - puntoDisparo.position).normalized;
         GameObject bala = Instantiate(balaPrefab, puntoDisparo.position, Quaternion.identity);
 

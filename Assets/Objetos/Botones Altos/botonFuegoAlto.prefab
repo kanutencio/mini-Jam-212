@@ -225,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AsignarTrampa
   ImagenTrampa: {fileID: 21300000, guid: edfa715b66ef0d04aa3d78adf8af4c3f, type: 3}
   imagen: {fileID: 3986191663005292952}
-  Trampa: {fileID: 5186206630436644528, guid: 9c1a1eedda4f8104cb9574fe2603ede7, type: 3}
+  Trampa: {fileID: 6741966368608436463, guid: 50ec4eab2f333a042a0dbfe83ff89f87, type: 3}
   ContraparteBoton: {fileID: 0}
   velocidadRotacion: 90
   InterObj: {fileID: 0}

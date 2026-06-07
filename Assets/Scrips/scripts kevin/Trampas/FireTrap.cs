@@ -38,7 +38,10 @@ public class FireTrap : MonoBehaviour
     [Tooltip("Activar para fijar la rotación de la trampa al colocarla en la escena")]
     public bool manualRotation = false;
 
-    void Start()
+    [Header("Sonido")]
+    [SerializeField] private AudioSource AS;
+
+    private void OnEnable()
     {
         // Empieza cargada para disparar al instante la primera vez
         _timer = fireRate;
@@ -49,6 +52,8 @@ public class FireTrap : MonoBehaviour
             ActualizarVisual();
             orientada = true;
         }
+
+        AS = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -272,6 +277,8 @@ public class FireTrap : MonoBehaviour
     void Shoot()
     {
         if (flamePrefab == null) return;
+
+        AS.Play();
 
         Transform activePoint = GetActiveFirePoint();
         if (activePoint == null)
