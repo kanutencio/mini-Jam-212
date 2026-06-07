@@ -9,8 +9,11 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject Punto4;
     [SerializeField] private GameObject Punto5;
     [SerializeField] private GameObject Punto6;
-    [SerializeField] private GameObject Punto7;
-    [SerializeField] private GameObject Punto8;
+
+    [Header("Escenas")]
+    [SerializeField] private GameObject escena1;
+    [SerializeField] private GameObject escena2;
+    [SerializeField] private GameObject escena3;
 
     [Header("Configuración")]
     [SerializeField] private float velocidad = 3f;
@@ -28,6 +31,7 @@ public class CamaraScript : MonoBehaviour
 
             case 2:
                 destino = Punto2.transform.position;
+                escena1.SetActive(true);
                 break;
 
             case 3:
@@ -35,7 +39,9 @@ public class CamaraScript : MonoBehaviour
                 break;
 
             case 4:
+                escena1.SetActive(false);
                 destino = Punto4.transform.position;
+                escena2.SetActive(true);
                 break;
 
             case 5:
@@ -43,16 +49,11 @@ public class CamaraScript : MonoBehaviour
                 break;
 
             case 6:
+                escena2.SetActive(false);
                 destino = Punto6.transform.position;
+                escena3.SetActive(true);
                 break;
 
-            case 7:
-                destino = Punto7.transform.position;
-                break;
-
-            case 8:
-                destino = Punto8.transform.position;
-                break;
         }
 
         transform.position = Vector3.MoveTowards(
