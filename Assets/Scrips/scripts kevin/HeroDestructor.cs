@@ -1,0 +1,115 @@
+using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
+
+/// <summary>
+/// Ponlo en el prefab del HÉROE (último nivel).
+/// Al entrar en contacto con una trampa la destruye.
+/// Al tocar el sarcófago, espera unos segundos y vuelve al menú.
+/// </summary>
+public class HeroDestructor : MonoBehaviour
+{
+    [Header("Configuración")]
+    [Tooltip("Segundos de espera antes de volver al menú tras el Game Over.")]
+    public float tiempoGameOver = 3f;
+
+    [Tooltip("Nombre exacto de la escena del menú principal.")]
+    public string nombreEscenaMenu = "Menu";
+
+    [Header("Game Over UI (opcional)")]
+    [Tooltip("Objeto de UI con la pantalla de Game Over. Se activa al morir.")]
+    public GameObject pantallaGameOver;
+
+    // Nombres que identifican una trampa (sin importar mayúsculas)
+    private static readonly string[] nombresTrampa = new string[]
+    {
+        "canon", "fireballtrap", "poisontrap", "spiketrap", "infernotrap", "catapult"
+    };
+
+    private bool gameOverActivado = false;
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (gameOverActivado) return;
+
+        string nombre = other.gameObject.name.ToLower();
+
+        // ¿Es una trampa?
+        foreach (var t in nombresTrampa)
+        {
+            if (nombre.Contains(t))
+            {
+                Debug.Log($"[HeroDestructor] Trampa destruida: {other.gameObject.name}");
+                Destroy(other.gameObject);
+                return;
+            }
+        }
+
+        // ¿Es el sarcófago?
+        if (nombre.Contains("sarcofago"))
+        {
+            Debug.Log("[HeroDestructor] El héroe tocó el sarcófago — Game Over.");
+            SarcofagoVida sarcofago = other.GetComponent<SarcofagoVida>();
+            if (sarcofago != null)
+            {
+                sarcofago.Destruir();
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
+
+            ActivarGameOver();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (gameOverActivado) return;
+
+        string nombre = collision.gameObject.name.ToLower();
+
+        foreach (var t in nombresTrampa)
+        {
+            if (nombre.Contains(t))
+            {
+                Debug.Log($"[HeroDestructor] Trampa destruida: {collision.gameObject.name}");
+                Destroy(collision.gameObject);
+                return;
+            }
+        }
+
+        if (nombre.Contains("sarcofago"))
+        {
+            SarcofagoVida sarcofago = collision.gameObject.GetComponent<SarcofagoVida>();
+            if (sarcofago != null)
+                sarcofago.Destruir();
+            else
+                Destroy(collision.gameObject);
+
+            ActivarGameOver();
+        }
+    }
+
+    private void ActivarGameOver()
+    {
+        if (gameOverActivado) return;
+        gameOverActivado = true;
+
+        // Detener al héroe
+        HeroMover mover = GetComponent<HeroMover>();
+        if (mover != null) mover.puedeMoverse = false;
+
+        // Mostrar pantalla de Game Over si hay una asignada
+        if (pantallaGameOver != null)
+            pantallaGameOver.SetActive(true);
+
+        StartCoroutine(VolverAlMenu());
+    }
+
+    private IEnumerator VolverAlMenu()
+    {
+        yield return new WaitForSeconds(tiempoGameOver);
+        SceneManager.LoadScene(nombreEscenaMenu);
+    }
+}

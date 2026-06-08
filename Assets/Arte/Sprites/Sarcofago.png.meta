@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dba55acbee48ee14989b6ae987e2a900
+guid: b7004122d69cf32479a29c4a920b8ca4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5244142092466975649
-    second: Barra de vida_0
+      213: 1231408784280977824
+    second: ataud_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Barra de vida_0
+      name: ataud_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 64
+        width: 212
+        height: 337
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5c05d23d801937b0800000000000000
-      internalID: -5244142092466975649
+      spriteID: 0a10d58d3c7d61110800000000000000
+      internalID: 1231408784280977824
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Barra de vida_0: -5244142092466975649
+      ataud_0: 1231408784280977824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
