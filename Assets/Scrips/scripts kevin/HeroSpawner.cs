@@ -42,7 +42,7 @@ public class HeroSpawner : MonoBehaviour
             return;
         }
 
-        int nivelActual = GameManager.Instance != null ? GameManager.Instance.nivelActual : 0;
+        int nivelActual = GameManager.nivelActual;
         soldadosPorSpawnear = baseSoldiersCount + (nivelActual * soldiersIncreasePerLevel);
         esperandoAlHeroe = false;
 
@@ -153,8 +153,14 @@ public class HeroSpawner : MonoBehaviour
 
         if (!esElHeroe)
         {
-            if (enemigosActivos.Count == 0 && soldadosPorSpawnear == 0 && !esperandoAlHeroe)
+            if (escapo)
             {
+                // Un soldado llegó al final → avisar al GameManager para cambiar de nivel
+                GameManager.Instance?.SoldadoEscapo();
+            }
+            else if (enemigosActivos.Count == 0 && soldadosPorSpawnear == 0 && !esperandoAlHeroe)
+            {
+                // Todos los soldados murieron → spawnear al héroe final
                 SpawnHeroeFinal();
             }
         }

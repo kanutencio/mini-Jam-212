@@ -208,8 +208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946f21b439dbf284d90436e91f5c91cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMover
-  velocidad: 3
-  vidaMaxima: 100
+  velocidad: 2
+  vidaMaxima: 1000
+  puedeMoverse: 1
+  tiempoPausaEnCasilla: 0
+  posicionZ: 4
+  prefabParticulasPaso: {fileID: 0}
   healthBarContainer: {fileID: 3615740521551680934}
   barraVidaRelleno: {fileID: 3141072925084034481}
 --- !u!61 &6402846066269472272
