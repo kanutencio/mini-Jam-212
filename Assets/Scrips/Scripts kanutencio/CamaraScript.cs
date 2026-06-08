@@ -11,7 +11,6 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject Punto4;
     [SerializeField] private GameObject Punto5;
     [SerializeField] private GameObject Punto6;
-    [SerializeField] private GameObject Punto7;
 
     [Header("Escenas")]
     [SerializeField] private GameObject escena1;
@@ -22,7 +21,6 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject GameManager1;
     [SerializeField] private GameObject GameManager2;
     [SerializeField] private GameObject GameManager3;
-    [SerializeField] private IntermediarioObjetos IO;
 
     [Header("Ruleta")]
     [SerializeField] private GameObject ruleta;
@@ -32,37 +30,42 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private int puntoActual = 1;
 
     private Vector3 destino;
-    private bool nivelActivado = false; // evita activar el nivel varias veces
+    private bool nivelActivado = false;
+    private bool nivelCambiando = false;
 
     private void OnEnable()
-{
-    GameManager.OnSoldadoLlegoAlFinal += OnSoldadoLlegoAlFinal;
-    GameManager.OnHeroeEscapo += OnHeroeEscapo; 
-}
+    {
+        GameManager.OnSoldadoLlegoAlFinal += OnSoldadoLlegoAlFinal;
+        GameManager.OnHeroeEscapo += OnHeroeEscapo;
+    }
 
-private void OnDisable()
-{
-    GameManager.OnSoldadoLlegoAlFinal -= OnSoldadoLlegoAlFinal;
-    GameManager.OnHeroeEscapo -= OnHeroeEscapo; 
-}
+    private void OnDisable()
+    {
+        GameManager.OnSoldadoLlegoAlFinal -= OnSoldadoLlegoAlFinal;
+        GameManager.OnHeroeEscapo -= OnHeroeEscapo;
+    }
 
-private void OnHeroeEscapo()
-{
-    ruleta.SetActive(false);
-    CambiarPunto(); // avanza al punto de ruleta del siguiente nivel
-}
+    private void OnSoldadoLlegoAlFinal()
+    {
+        if (nivelCambiando) return;
+        nivelCambiando = true;
+        ruleta.SetActive(false);
+        CambiarPunto();
+    }
 
-private void OnSoldadoLlegoAlFinal()
-{
-
-}
+    private void OnHeroeEscapo()
+    {
+        if (nivelCambiando) return;
+        nivelCambiando = true;
+        ruleta.SetActive(false);
+        CambiarPunto();
+    }
 
     void Update()
     {
         switch (puntoActual)
         {
             case 1:
-                IO.Nobjetos = 3;
                 destino = Punto1.transform.position;
                 if (LlegoAlDestino())
                 {
@@ -89,7 +92,6 @@ private void OnSoldadoLlegoAlFinal()
                 break;
 
             case 3:
-                IO.Nobjetos = 5;
                 destino = Punto3.transform.position;
                 if (LlegoAlDestino())
                 {
@@ -119,7 +121,6 @@ private void OnSoldadoLlegoAlFinal()
                 break;
 
             case 5:
-                IO.Nobjetos = 7;
                 destino = Punto5.transform.position;
                 if (LlegoAlDestino())
                 {
@@ -147,10 +148,6 @@ private void OnSoldadoLlegoAlFinal()
                     }
                 }
                 break;
-
-            case 7:
-                destino = Punto7.transform.position;
-                break;
         }
 
         transform.position = Vector3.MoveTowards(
@@ -167,10 +164,11 @@ private void OnSoldadoLlegoAlFinal()
 
     public void CambiarPunto()
     {
+        nivelCambiando = false;
         puntoActual++;
-        nivelActivado = false; // resetear para el nuevo punto
+        nivelActivado = false;
 
-        if (puntoActual > 7)
+        if (puntoActual > 6)
             puntoActual = 1;
     }
 }

@@ -126,7 +126,7 @@ MonoBehaviour:
   vidaMaxima: 1000
   puedeMoverse: 1
   tiempoPausaEnCasilla: 0
-  posicionZ: 0
+  posicionZ: 1
   prefabParticulasPaso: {fileID: 0}
   healthBarContainer: {fileID: 8564996866418263061}
   barraVidaRelleno: {fileID: 2424680710238574599}

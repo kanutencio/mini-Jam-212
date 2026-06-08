@@ -5,17 +5,12 @@ using System.Collections.Generic;
 public class HeroSpawner : MonoBehaviour
 {
     [Header("Prefabs de Enemigos")]
-    [Tooltip("Prefab del héroe final del nivel.")]
     public GameObject heroPrefab;
-    [Tooltip("Prefab de los soldaditos que aparecen antes del héroe.")]
     public GameObject soldadoPrefab;
 
     [Header("Configuración de Oleada")]
-    [Tooltip("Cantidad de soldados base en el primer nivel (nivel 0).")]
     public int baseSoldiersCount = 2;
-    [Tooltip("Cuántos soldados adicionales se agregan por cada nivel extra.")]
     public int soldiersIncreasePerLevel = 1;
-    [Tooltip("Tiempo en segundos entre la aparición de cada soldado.")]
     public float tiempoEntreSpawns = 1.0f;
 
     [Header("Camino activo")]
@@ -24,6 +19,7 @@ public class HeroSpawner : MonoBehaviour
     private List<GameObject> enemigosActivos = new List<GameObject>();
     private int soldadosPorSpawnear = 0;
     private bool esperandoAlHeroe = false;
+    private bool nivelTerminado = false; // evita que múltiples soldados disparen el cambio
 
     public static HeroSpawner Instance { get; private set; }
 
@@ -35,10 +31,11 @@ public class HeroSpawner : MonoBehaviour
     public void SpawnHeroe()
     {
         enemigosActivos.RemoveAll(item => item == null);
+        nivelTerminado = false;
 
         if (enemigosActivos.Count > 0)
         {
-            Debug.LogWarning("[HeroSpawner] Ya hay una oleada en progreso. Cantidad activa: " + enemigosActivos.Count);
+            Debug.LogWarning("[HeroSpawner] Ya hay una oleada en progreso.");
             return;
         }
 
@@ -46,18 +43,12 @@ public class HeroSpawner : MonoBehaviour
         soldadosPorSpawnear = baseSoldiersCount + (nivelActual * soldiersIncreasePerLevel);
         esperandoAlHeroe = false;
 
-        Debug.Log($"[HeroSpawner] Iniciar Spawn. nivelActual={nivelActual}, baseSoldiersCount={baseSoldiersCount}, soldadosPorSpawnear={soldadosPorSpawnear}, soldadoPrefabIsNull={(soldadoPrefab == null)}, heroPrefabIsNull={(heroPrefab == null)}");
+        Debug.Log($"[HeroSpawner] Iniciar Spawn. nivelActual={nivelActual}, soldados={soldadosPorSpawnear}");
 
         if (soldadosPorSpawnear > 0 && soldadoPrefab != null)
-        {
-            Debug.Log("[HeroSpawner] Iniciando corrutina para spawnear soldaditos...");
             StartCoroutine(SpawnSoldadosCoroutine());
-        }
         else
-        {
-            Debug.Log($"[HeroSpawner] Saltando soldados (soldadosPorSpawnear={soldadosPorSpawnear}, soldadoPrefabIsNull={(soldadoPrefab == null)}). Spawneando héroe directamente.");
             SpawnHeroeFinal();
-        }
     }
 
     private IEnumerator SpawnSoldadosCoroutine()
@@ -65,17 +56,17 @@ public class HeroSpawner : MonoBehaviour
         int count = 0;
         while (soldadosPorSpawnear > 0)
         {
+            if (nivelTerminado) yield break; // si ya terminó el nivel, parar
+
             if (soldadoPrefab == null || waypointPath == null)
             {
-                Debug.LogError($"[HeroSpawner] Error en corrutina: soldadoPrefabIsNull={(soldadoPrefab == null)}, waypointPathIsNull={(waypointPath == null)}");
+                Debug.LogError("[HeroSpawner] Faltan referencias en la corrutina.");
                 yield break;
             }
 
             Vector3 spawnPos = waypointPath.GetWaypoint(0).position;
-            
-            // Obtenemos la Z que el prefab tiene configurada en su HeroMover
             float targetZ = 4f;
-            HeroMover moverPrefab = soldadoPrefab != null ? soldadoPrefab.GetComponent<HeroMover>() : null;
+            HeroMover moverPrefab = soldadoPrefab.GetComponent<HeroMover>();
             if (moverPrefab != null) targetZ = moverPrefab.posicionZ;
             spawnPos.z = targetZ;
 
@@ -83,7 +74,7 @@ public class HeroSpawner : MonoBehaviour
             enemigosActivos.Add(soldado);
             count++;
 
-            Debug.Log($"[HeroSpawner] Soldadito #{count} instanciado exitosamente.");
+            Debug.Log($"[HeroSpawner] Soldadito #{count} instanciado.");
 
             HeroMover mover = soldado.GetComponent<HeroMover>();
             if (mover != null)
@@ -92,26 +83,20 @@ public class HeroSpawner : MonoBehaviour
                 mover.onReachedEnd = () => OnEnemigoFinalizado(soldado, true, false);
                 mover.onDeath = () => OnEnemigoFinalizado(soldado, false, false);
             }
-            else
-            {
-                Debug.LogWarning("[HeroSpawner] El prefab del soldado no tiene el componente HeroMover.");
-            }
 
             soldadosPorSpawnear--;
 
             if (soldadosPorSpawnear > 0)
-            {
                 yield return new WaitForSeconds(tiempoEntreSpawns);
-            }
         }
-        Debug.Log("[HeroSpawner] Todos los soldaditos de la oleada han sido instanciados.");
+        Debug.Log("[HeroSpawner] Todos los soldaditos instanciados.");
     }
 
     private void SpawnHeroeFinal()
     {
         if (heroPrefab == null || waypointPath == null)
         {
-            Debug.LogError($"[HeroSpawner] Error al spawnear héroe: heroPrefabIsNull={(heroPrefab == null)}, waypointPathIsNull={(waypointPath == null)}");
+            Debug.LogError("[HeroSpawner] Faltan referencias para spawnear héroe.");
             return;
         }
 
@@ -119,10 +104,8 @@ public class HeroSpawner : MonoBehaviour
         Debug.Log("[HeroSpawner] Instanciando al Héroe Final...");
 
         Vector3 spawnPos = waypointPath.GetWaypoint(0).position;
-        
-        // Obtenemos la Z que el prefab tiene configurada en su HeroMover
         float targetZ = 4f;
-        HeroMover moverPrefab = heroPrefab != null ? heroPrefab.GetComponent<HeroMover>() : null;
+        HeroMover moverPrefab = heroPrefab.GetComponent<HeroMover>();
         if (moverPrefab != null) targetZ = moverPrefab.posicionZ;
         spawnPos.z = targetZ;
 
@@ -136,44 +119,47 @@ public class HeroSpawner : MonoBehaviour
             mover.onReachedEnd = () => OnEnemigoFinalizado(heroe, true, true);
             mover.onDeath = () => OnEnemigoFinalizado(heroe, false, true);
         }
-        else
-        {
-            Debug.LogWarning("[HeroSpawner] El prefab del héroe no tiene el componente HeroMover.");
-        }
     }
 
     private void OnEnemigoFinalizado(GameObject enemigo, bool escapo, bool esElHeroe)
     {
         if (enemigosActivos.Contains(enemigo))
-        {
             enemigosActivos.Remove(enemigo);
-        }
 
-        Debug.Log($"[HeroSpawner] Enemigo finalizado: {(esElHeroe ? "HEROE" : "SOLDADO")}, escapó={escapo}, activos restantes={enemigosActivos.Count}");
+        Debug.Log($"[HeroSpawner] {(esElHeroe ? "HEROE" : "SOLDADO")} finalizado, escapó={escapo}, activos={enemigosActivos.Count}");
 
         if (!esElHeroe)
         {
             if (escapo)
             {
-                // Un soldado llegó al final → avisar al GameManager para cambiar de nivel
+                if (nivelTerminado) return; // ya se procesó un soldado que escapó
+                nivelTerminado = true;
+
+                // Detener spawns y destruir soldados restantes
+                StopAllCoroutines();
+                soldadosPorSpawnear = 0;
+                esperandoAlHeroe = false;
+
+                // Destruir soldados que quedaron en camino
+                foreach (var e in enemigosActivos)
+                {
+                    if (e != null) Destroy(e);
+                }
+                enemigosActivos.Clear();
+
                 GameManager.Instance?.SoldadoEscapo();
             }
-            else if (enemigosActivos.Count == 0 && soldadosPorSpawnear == 0 && !esperandoAlHeroe)
+            else if (enemigosActivos.Count == 0 && soldadosPorSpawnear == 0 && !esperandoAlHeroe && !nivelTerminado)
             {
-                // Todos los soldados murieron → spawnear al héroe final
                 SpawnHeroeFinal();
             }
         }
         else
         {
             if (escapo)
-            {
                 GameManager.Instance.HeroeEscapo();
-            }
             else
-            {
                 GameManager.Instance.HeroeMurio();
-            }
         }
     }
 
@@ -191,11 +177,7 @@ public class HeroSpawner : MonoBehaviour
     public GameObject GetHeroeActivo()
     {
         enemigosActivos.RemoveAll(item => item == null);
-        if (enemigosActivos.Count > 0)
-        {
-            return enemigosActivos[0];
-        }
-        return null;
+        return enemigosActivos.Count > 0 ? enemigosActivos[0] : null;
     }
 
     public List<GameObject> GetTodosLosEnemigosActivos()

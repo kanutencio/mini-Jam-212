@@ -2231,7 +2231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9154dbd0d35cc4a8cfabaf749ecaeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroSpawner
-  heroPrefab: {fileID: 1677793139530631480, guid: 76ac5e9c25f8d4c4887e69609a228a46, type: 3}
+  heroPrefab: {fileID: 7980893216327953, guid: 34219b4adb4329e4aada98348c83cb61, type: 3}
   soldadoPrefab: {fileID: 1355284593817995751, guid: fbd37c4afd325bc459e9d7444a90b57f, type: 3}
   baseSoldiersCount: 10
   soldiersIncreasePerLevel: 5
@@ -8539,14 +8539,12 @@ MonoBehaviour:
   Punto4: {fileID: 1887293088}
   Punto5: {fileID: 1112130448}
   Punto6: {fileID: 2102271179}
-  Punto7: {fileID: 860156280}
   escena1: {fileID: 265743906}
   escena2: {fileID: 1750326830}
   escena3: {fileID: 538128954}
   GameManager1: {fileID: 1104061683}
   GameManager2: {fileID: 1614507210}
   GameManager3: {fileID: 1693102231}
-  IO: {fileID: 1358538974}
   ruleta: {fileID: 1934533929}
   velocidad: 5
   puntoActual: 1
