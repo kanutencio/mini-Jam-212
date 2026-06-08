@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 public class ScriptMenu : MonoBehaviour
 {
 
-    [Header("Play")]
     [SerializeField] private float velocidad;
     [SerializeField] private GameObject Punto0;
     [SerializeField] private GameObject Punto1;
     [SerializeField] private GameObject Punto2;
+    [SerializeField] private AudioSource Sonido;
     [SerializeField] private int puntoActual;
     private Vector3 destino;
 
@@ -30,9 +30,11 @@ public class ScriptMenu : MonoBehaviour
 
     public void Jugar()
     {
+        Sonido.Play();
         velocidad = 7;
         destino = Punto1.transform.position;
         StartCoroutine("CambioScena");
+
     }
 
     IEnumerator CambioScena()
@@ -43,12 +45,21 @@ public class ScriptMenu : MonoBehaviour
 
     public void Instruciones()
     {
-        velocidad = 12;
+        Sonido.Play();
+        velocidad = 14;
         destino = Punto2.transform.position;
+    }
+
+    public void VolverDeInstruciones()
+    {
+        Sonido.Play();
+        velocidad = 14;
+        destino = Punto0.transform.position;
     }
 
     public void SalirDelJuego()
     {
+        Sonido.Play();
         // Cierra la aplicación (Funciona en compilaciones de PC/Android)
         Application.Quit();
 
