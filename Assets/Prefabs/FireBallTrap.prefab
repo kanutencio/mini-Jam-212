@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8169186239755969128}
   m_Layer: 0
   m_Name: FireBallTrap
-  m_TagString: Untagged
+  m_TagString: Trampa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

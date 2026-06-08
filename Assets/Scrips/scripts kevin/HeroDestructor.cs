@@ -9,63 +9,43 @@ public class HeroDestructor : MonoBehaviour
     public string nombreEscenaMenu = "Menu";
     public float dañoAlSarcofago = 100f;
 
+    [Header("Radio de destrucción")]
+    public float radioDestruccion = 2f;
+
     [Header("Game Over UI (opcional)")]
     public GameObject pantallaGameOver;
 
-    private static readonly string[] nombresTrampa = new string[]
-    {
-        "canon", "fireballtrap", "poisontrap", "spiketrap", "infernotrap", "catapult"
-    };
-
     private bool gameOverActivado = false;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void Update()
     {
         if (gameOverActivado) return;
 
-        string nombre = other.gameObject.name.ToLower();
+        // Buscar todos los objetos con tag "Trampa" en la escena
+        GameObject[] trampas = GameObject.FindGameObjectsWithTag("Trampa");
 
-        foreach (var t in nombresTrampa)
+        foreach (var trampa in trampas)
         {
-            if (nombre.Contains(t))
+            if (trampa == null) continue;
+
+            float distancia = Vector2.Distance(transform.position, trampa.transform.position);
+            if (distancia <= radioDestruccion)
             {
-                Debug.Log($"[HeroDestructor] Trampa destruida: {other.gameObject.name}");
-                Destroy(other.gameObject);
-                return;
+                Debug.Log($"[HeroDestructor] Trampa destruida: {trampa.name}");
+                Destroy(trampa);
             }
         }
 
-        if (nombre.Contains("sarcofago"))
+        // Sarcófago aparte por tag o nombre
+        GameObject sarcofago = GameObject.FindGameObjectWithTag("Sarcofago");
+        if (sarcofago != null)
         {
-            SarcofagoVida sarcofago = other.GetComponent<SarcofagoVida>();
-            if (sarcofago != null)
+            float dist = Vector2.Distance(transform.position, sarcofago.transform.position);
+            if (dist <= radioDestruccion)
             {
-                sarcofago.RecibirDaño(dañoAlSarcofago);
-                // Solo activa Game Over cuando el sarcófago muere (lo maneja SarcofagoVida)
+                SarcofagoVida sv = sarcofago.GetComponent<SarcofagoVida>();
+                if (sv != null) sv.RecibirDaño(dañoAlSarcofago);
             }
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (gameOverActivado) return;
-
-        string nombre = collision.gameObject.name.ToLower();
-
-        foreach (var t in nombresTrampa)
-        {
-            if (nombre.Contains(t))
-            {
-                Destroy(collision.gameObject);
-                return;
-            }
-        }
-
-        if (nombre.Contains("sarcofago"))
-        {
-            SarcofagoVida sarcofago = collision.gameObject.GetComponent<SarcofagoVida>();
-            if (sarcofago != null)
-                sarcofago.RecibirDaño(dañoAlSarcofago);
         }
     }
 
@@ -87,5 +67,11 @@ public class HeroDestructor : MonoBehaviour
     {
         yield return new WaitForSeconds(tiempoGameOver);
         SceneManager.LoadScene(nombreEscenaMenu);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radioDestruccion);
     }
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3144903030148787004}
   m_Layer: 0
   m_Name: InfernoTrap
-  m_TagString: Untagged
+  m_TagString: Trampa
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,7 +50,7 @@ MonoBehaviour:
   rango: 5
   "da\xF1oBasePorSegundo": 2
   "aumentoDa\xF1oPorSegundo": 3
-  "da\xF1oMaximoPorSegundo": 20
+  "da\xF1oMaximoPorSegundo": 50
   puntoDisparo: {fileID: 4722109754357353875}
   lineRenderer: {fileID: 6528616347262798861}
 --- !u!1 &6615964840625547827
