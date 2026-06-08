@@ -34,7 +34,6 @@ public class ScriptMenu : MonoBehaviour
         velocidad = 7;
         destino = Punto1.transform.position;
         StartCoroutine("CambioScena");
-
     }
 
     IEnumerator CambioScena()

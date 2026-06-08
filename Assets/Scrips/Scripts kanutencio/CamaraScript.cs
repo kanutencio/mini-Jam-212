@@ -11,6 +11,7 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject Punto4;
     [SerializeField] private GameObject Punto5;
     [SerializeField] private GameObject Punto6;
+    [SerializeField] private GameObject Punto7;
 
     [Header("Escenas")]
     [SerializeField] private GameObject escena1;
@@ -146,6 +147,10 @@ private void OnSoldadoLlegoAlFinal()
                     }
                 }
                 break;
+
+            case 7:
+                destino = Punto7.transform.position;
+                break;
         }
 
         transform.position = Vector3.MoveTowards(
@@ -165,7 +170,7 @@ private void OnSoldadoLlegoAlFinal()
         puntoActual++;
         nivelActivado = false; // resetear para el nuevo punto
 
-        if (puntoActual > 6)
+        if (puntoActual > 7)
             puntoActual = 1;
     }
 }
