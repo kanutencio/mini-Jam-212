@@ -86,22 +86,28 @@ public class FireTrap : MonoBehaviour
         // Timer always advances
         _timer += Time.deltaTime;
 
-        GameObject heroe = HeroSpawner.Instance != null ? HeroSpawner.Instance.GetHeroeActivo() : null;
-        if (heroe == null) return;
+        // Obtener el primer enemigo activo (soldado o héroe) desde HeroSpawner
+        var lista = HeroSpawner.Instance != null ? HeroSpawner.Instance.GetTodosLosEnemigosActivos() : null;
+        if (lista == null || lista.Count == 0) return;
+        GameObject objetivo = lista[0];
 
-        float distancia = Vector3.Distance(transform.position, heroe.transform.position);
+        float distancia = Vector3.Distance(transform.position, objetivo.transform.position);
         if (distancia > rango) return;
 
-        Vector3 dirHeroe = (heroe.transform.position - transform.position).normalized;
-        float dot = 0f;
-        switch (direccion)
+        // Calcular dirección al objetivo
+        Vector3 dir = (objetivo.transform.position - transform.position).normalized;
+        // Determinar la enumeración Direccion basada en la componente mayor
+        if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
         {
-            case Direccion.Arriba:    dot = Vector3.Dot(dirHeroe, Vector3.up); break;
-            case Direccion.Abajo:     dot = Vector3.Dot(dirHeroe, Vector3.down); break;
-            case Direccion.Izquierda: dot = Vector3.Dot(dirHeroe, Vector3.left); break;
-            case Direccion.Derecha:   dot = Vector3.Dot(dirHeroe, Vector3.right); break;
+            direccion = dir.x > 0 ? Direccion.Derecha : Direccion.Izquierda;
         }
-        if (dot < 0.5f) return;
+        else
+        {
+            direccion = dir.y > 0 ? Direccion.Arriba : Direccion.Abajo;
+        }
+        // Rotar visualmente el cañón (opcional, aquí usamos la rotación del Transform)
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
         if (_timer >= fireRate)
         {
