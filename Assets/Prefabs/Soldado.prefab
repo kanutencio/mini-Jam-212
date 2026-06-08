@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5477994179696445187}
   - component: {fileID: 3448668617018805816}
   - component: {fileID: 8738778358294551527}
+  - component: {fileID: 7711725156604199108}
   m_Layer: 0
   m_Name: Soldado
   m_TagString: Soldadito
@@ -113,6 +114,20 @@ MonoBehaviour:
   prefabParticulasPaso: {fileID: 0}
   healthBarContainer: {fileID: 3159925344143298740}
   barraVidaRelleno: {fileID: 96733848862173105}
+--- !u!114 &7711725156604199108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355284593817995751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e0a3ddb007bf5488e73ba9930677e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SineScaleY
+  amplitud: 0.05
+  velocidad: 5
 --- !u!1 &4758701269343969475
 GameObject:
   m_ObjectHideFlags: 0
