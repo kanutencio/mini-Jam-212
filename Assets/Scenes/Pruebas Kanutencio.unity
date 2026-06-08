@@ -8549,7 +8549,7 @@ MonoBehaviour:
   IO: {fileID: 1358538974}
   ruleta: {fileID: 1934533929}
   velocidad: 5
-  puntoActual: 7
+  puntoActual: 1
 --- !u!82 &2028854361
 AudioSource:
   m_ObjectHideFlags: 0
