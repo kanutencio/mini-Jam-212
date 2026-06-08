@@ -76,6 +76,11 @@ public class AsignarTrampa : MonoBehaviour
         {
             Boton.interactable = false;
         }
+        else
+        {
+            Boton.interactable = true;
+        }
+
 
         if (Trampa == InterObj.Objeto)
         {

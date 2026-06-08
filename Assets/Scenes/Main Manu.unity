@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 335550961}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 609977621}
+        m_TargetAssemblyTypeName: ScriptMenu, Assembly-CSharp
+        m_MethodName: SalirDelJuego
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &335550961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,9 +434,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScriptMenu
   velocidad: 0
-  Punto0: {fileID: 0}
+  Punto0: {fileID: 508746633}
   Punto1: {fileID: 1614349205}
-  Punto2: {fileID: 0}
+  Punto2: {fileID: 730357725}
   puntoActual: 0
 --- !u!1 &685944398
 GameObject:
@@ -640,7 +652,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 873176013}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 609977621}
+        m_TargetAssemblyTypeName: ScriptMenu, Assembly-CSharp
+        m_MethodName: Instruciones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &873176013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1002,7 +1026,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1403770465}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 609977621}
+        m_TargetAssemblyTypeName: ScriptMenu, Assembly-CSharp
+        m_MethodName: Jugar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1403770465
 MonoBehaviour:
   m_ObjectHideFlags: 0
