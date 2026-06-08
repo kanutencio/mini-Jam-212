@@ -3085,11 +3085,11 @@ Transform:
   m_GameObject: {fileID: 1112130448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 0}
+  m_LocalPosition: {x: 75.216415, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1593583755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112761475
 GameObject:
@@ -4311,11 +4311,11 @@ Transform:
   m_GameObject: {fileID: 1343704232}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20, y: 0, z: 0}
+  m_LocalPosition: {x: 35.21641, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1593583755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1358538973
 GameObject:
@@ -4388,11 +4388,11 @@ Transform:
   m_GameObject: {fileID: 1366009680}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -57, y: 0, z: 0}
+  m_LocalPosition: {x: -1.7835884, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1593583755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1383500468 stripped
 RectTransform:
@@ -4921,11 +4921,11 @@ Transform:
   m_GameObject: {fileID: 1563605541}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -40, y: 0, z: 0}
+  m_LocalPosition: {x: 15.216412, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1593583755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1593583754
 GameObject:
@@ -4955,7 +4955,13 @@ Transform:
   m_LocalPosition: {x: -55.21641, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1366009681}
+  - {fileID: 1563605542}
+  - {fileID: 1343704233}
+  - {fileID: 1887293089}
+  - {fileID: 1112130449}
+  - {fileID: 2102271180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1650197714
@@ -6516,11 +6522,11 @@ Transform:
   m_GameObject: {fileID: 1887293088}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 55.21641, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1593583755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1919838281 stripped
 RectTransform:
@@ -7157,7 +7163,7 @@ Transform:
   m_GameObject: {fileID: 2028854355}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -61.19, y: 0, z: -10}
+  m_LocalPosition: {x: -71.7, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7228,6 +7234,10 @@ MonoBehaviour:
   escena1: {fileID: 265743906}
   escena2: {fileID: 1750326830}
   escena3: {fileID: 538128954}
+  GameManager1: {fileID: 597657194}
+  GameManager2: {fileID: 597657194}
+  GameManager3: {fileID: 597657194}
+  ruleta: {fileID: 1934533929}
   velocidad: 5
   puntoActual: 1
 --- !u!224 &2032972992 stripped
@@ -7373,11 +7383,11 @@ Transform:
   m_GameObject: {fileID: 2102271179}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 0}
+  m_LocalPosition: {x: 95.216415, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1593583755}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2104301831
 PrefabInstance:
@@ -7723,12 +7733,6 @@ SceneRoots:
   - {fileID: 1358538975}
   - {fileID: 1073566636}
   - {fileID: 181863849}
-  - {fileID: 1366009681}
-  - {fileID: 1563605542}
-  - {fileID: 1343704233}
-  - {fileID: 1887293089}
-  - {fileID: 1112130449}
-  - {fileID: 2102271180}
   - {fileID: 1593583755}
   - {fileID: 597657196}
   - {fileID: 663493450}

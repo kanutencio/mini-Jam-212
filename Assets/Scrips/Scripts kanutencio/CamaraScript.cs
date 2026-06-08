@@ -15,6 +15,14 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject escena2;
     [SerializeField] private GameObject escena3;
 
+    [Header("Game Manager")]
+    [SerializeField] private GameObject GameManager1;
+    [SerializeField] private GameObject GameManager2;
+    [SerializeField] private GameObject GameManager3;
+
+    [Header("Escenas")]
+    [SerializeField] private GameObject ruleta; //no sabia como nombrarlo
+
     [Header("Configuración")]
     [SerializeField] private float velocidad = 3f;
 
@@ -27,31 +35,67 @@ public class CamaraScript : MonoBehaviour
         {
             case 1:
                 destino = Punto1.transform.position;
+                if (transform.position.x == Punto1.transform.position.x)
+                {
+                    ruleta.SetActive(true);
+                }
+
                 break;
 
             case 2:
                 destino = Punto2.transform.position;
-                escena1.SetActive(true);
+                if (transform.position.x == Punto2.transform.position.x)
+                { 
+                    escena1.SetActive(true);
+                    GameManager1.SetActive(true);
+                }
+                
+
                 break;
 
             case 3:
                 destino = Punto3.transform.position;
+                if (transform.position.x == Punto3.transform.position.x)
+                {
+                    ruleta.SetActive(true);
+                }
+
+
                 break;
 
             case 4:
-                escena1.SetActive(false);
+
                 destino = Punto4.transform.position;
-                escena2.SetActive(true);
+
+                if (transform.position.x == Punto4.transform.position.x)
+                {
+                    escena2.SetActive(true);
+                    GameManager2.SetActive(true);
+                    escena1.SetActive(false);        
+                }
+
                 break;
 
             case 5:
+
                 destino = Punto5.transform.position;
+                if (transform.position.x == Punto5.transform.position.x)
+                {
+                    ruleta.SetActive(true);
+                }
                 break;
 
             case 6:
-                escena2.SetActive(false);
+
                 destino = Punto6.transform.position;
-                escena3.SetActive(true);
+
+                if (transform.position.x == Punto6.transform.position.x)
+                {
+                    escena3.SetActive(true);
+                    GameManager3.SetActive(true);
+                    escena2.SetActive(false);
+                }
+
                 break;
 
         }
