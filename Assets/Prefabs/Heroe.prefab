@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeroMover
   velocidad: 2
-  vidaMaxima: 500
+  vidaMaxima: 450
   puedeMoverse: 1
   tiempoPausaEnCasilla: 0
   posicionZ: 1

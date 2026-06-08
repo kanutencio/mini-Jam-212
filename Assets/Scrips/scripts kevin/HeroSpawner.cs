@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class HeroSpawner : MonoBehaviour
 {
@@ -11,7 +12,18 @@ public class HeroSpawner : MonoBehaviour
     [Header("Configuración de Oleada")]
     public int baseSoldiersCount = 2;
     public int soldiersIncreasePerLevel = 1;
-    public float tiempoEntreSpawns = 1.0f;
+
+    [Header("Tiempo entre spawns")]
+    [Tooltip("Tiempo inicial entre spawns (primer soldado).")]
+    public float tiempoSpawnInicial = 3f;
+    [Tooltip("Tiempo mínimo entre spawns (último soldado).")]
+    public float tiempoSpawnFinal = 0.5f;
+
+    [Header("Menú")]
+    [Tooltip("Nombre de la escena del menú principal.")]
+    public string nombreEscenaMenu = "Menu";
+    [Tooltip("Segundos antes de volver al menú cuando el héroe muere.")]
+    public float tiempoVueltaMenu = 2f;
 
     [Header("Camino activo")]
     public WaypointPath waypointPath;
@@ -19,7 +31,9 @@ public class HeroSpawner : MonoBehaviour
     private List<GameObject> enemigosActivos = new List<GameObject>();
     private int soldadosPorSpawnear = 0;
     private bool esperandoAlHeroe = false;
-    private bool nivelTerminado = false; // evita que múltiples soldados disparen el cambio
+    private bool nivelTerminado = false;
+    private int totalSoldadosOleada = 0;
+    private int soldadosSpawneados = 0;
 
     public static HeroSpawner Instance { get; private set; }
 
@@ -41,6 +55,8 @@ public class HeroSpawner : MonoBehaviour
 
         int nivelActual = GameManager.nivelActual;
         soldadosPorSpawnear = baseSoldiersCount + (nivelActual * soldiersIncreasePerLevel);
+        totalSoldadosOleada = soldadosPorSpawnear;
+        soldadosSpawneados = 0;
         esperandoAlHeroe = false;
 
         Debug.Log($"[HeroSpawner] Iniciar Spawn. nivelActual={nivelActual}, soldados={soldadosPorSpawnear}");
@@ -53,10 +69,9 @@ public class HeroSpawner : MonoBehaviour
 
     private IEnumerator SpawnSoldadosCoroutine()
     {
-        int count = 0;
         while (soldadosPorSpawnear > 0)
         {
-            if (nivelTerminado) yield break; // si ya terminó el nivel, parar
+            if (nivelTerminado) yield break;
 
             if (soldadoPrefab == null || waypointPath == null)
             {
@@ -72,9 +87,9 @@ public class HeroSpawner : MonoBehaviour
 
             GameObject soldado = Instantiate(soldadoPrefab, spawnPos, Quaternion.identity);
             enemigosActivos.Add(soldado);
-            count++;
+            soldadosSpawneados++;
 
-            Debug.Log($"[HeroSpawner] Soldadito #{count} instanciado.");
+            Debug.Log($"[HeroSpawner] Soldadito #{soldadosSpawneados} instanciado.");
 
             HeroMover mover = soldado.GetComponent<HeroMover>();
             if (mover != null)
@@ -87,7 +102,16 @@ public class HeroSpawner : MonoBehaviour
             soldadosPorSpawnear--;
 
             if (soldadosPorSpawnear > 0)
-                yield return new WaitForSeconds(tiempoEntreSpawns);
+            {
+                // Interpolación lineal: el primer spawn espera tiempoSpawnInicial,
+                // el último espera tiempoSpawnFinal
+                float t = totalSoldadosOleada > 1
+                    ? (float)(soldadosSpawneados - 1) / (totalSoldadosOleada - 1)
+                    : 0f;
+                float espera = Mathf.Lerp(tiempoSpawnInicial, tiempoSpawnFinal, t);
+                Debug.Log($"[HeroSpawner] Esperando {espera:F2}s antes del siguiente spawn.");
+                yield return new WaitForSeconds(espera);
+            }
         }
         Debug.Log("[HeroSpawner] Todos los soldaditos instanciados.");
     }
@@ -132,19 +156,15 @@ public class HeroSpawner : MonoBehaviour
         {
             if (escapo)
             {
-                if (nivelTerminado) return; // ya se procesó un soldado que escapó
+                if (nivelTerminado) return;
                 nivelTerminado = true;
 
-                // Detener spawns y destruir soldados restantes
                 StopAllCoroutines();
                 soldadosPorSpawnear = 0;
                 esperandoAlHeroe = false;
 
-                // Destruir soldados que quedaron en camino
                 foreach (var e in enemigosActivos)
-                {
                     if (e != null) Destroy(e);
-                }
                 enemigosActivos.Clear();
 
                 GameManager.Instance?.SoldadoEscapo();
@@ -157,10 +177,22 @@ public class HeroSpawner : MonoBehaviour
         else
         {
             if (escapo)
+            {
                 GameManager.Instance.HeroeEscapo();
+            }
             else
-                GameManager.Instance.HeroeMurio();
+            {
+                // Héroe murió → ganaste → volver al menú
+                Debug.Log("[HeroSpawner] ¡Héroe eliminado! Volviendo al menú...");
+                StartCoroutine(VolverAlMenu());
+            }
         }
+    }
+
+    private IEnumerator VolverAlMenu()
+    {
+        yield return new WaitForSeconds(tiempoVueltaMenu);
+        SceneManager.LoadScene(nombreEscenaMenu);
     }
 
     public void CambiarCamino(WaypointPath nuevoCamino)
