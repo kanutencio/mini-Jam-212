@@ -21,6 +21,7 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject GameManager1;
     [SerializeField] private GameObject GameManager2;
     [SerializeField] private GameObject GameManager3;
+    [SerializeField] private IntermediarioObjetos IO;
 
     [Header("Ruleta")]
     [SerializeField] private GameObject ruleta;
@@ -60,6 +61,7 @@ private void OnSoldadoLlegoAlFinal()
         switch (puntoActual)
         {
             case 1:
+                IO.Nobjetos = 3;
                 destino = Punto1.transform.position;
                 if (LlegoAlDestino())
                 {
@@ -86,6 +88,7 @@ private void OnSoldadoLlegoAlFinal()
                 break;
 
             case 3:
+                IO.Nobjetos = 5;
                 destino = Punto3.transform.position;
                 if (LlegoAlDestino())
                 {
@@ -115,6 +118,7 @@ private void OnSoldadoLlegoAlFinal()
                 break;
 
             case 5:
+                IO.Nobjetos = 7;
                 destino = Punto5.transform.position;
                 if (LlegoAlDestino())
                 {
