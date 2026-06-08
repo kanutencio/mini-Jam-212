@@ -10,4 +10,12 @@ public class IntermediarioObjetos : MonoBehaviour
     {
         Nobjetos--;
     }
+    public void SumarTRampa7()
+    {
+        Nobjetos = 7;
+    }
+    public void SumarTRampa5()
+    {
+        Nobjetos = 5;
+    }
 }

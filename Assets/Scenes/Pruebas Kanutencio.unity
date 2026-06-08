@@ -8539,6 +8539,8 @@ MonoBehaviour:
   Punto4: {fileID: 1887293088}
   Punto5: {fileID: 1112130448}
   Punto6: {fileID: 2102271179}
+  Punto7: {fileID: 860156280}
+  IO: {fileID: 1358538974}
   escena1: {fileID: 265743906}
   escena2: {fileID: 1750326830}
   escena3: {fileID: 538128954}

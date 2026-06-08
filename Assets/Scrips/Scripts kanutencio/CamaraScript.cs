@@ -11,6 +11,9 @@ public class CamaraScript : MonoBehaviour
     [SerializeField] private GameObject Punto4;
     [SerializeField] private GameObject Punto5;
     [SerializeField] private GameObject Punto6;
+    [SerializeField] private GameObject Punto7;
+
+    [SerializeField] private IntermediarioObjetos IO;
 
     [Header("Escenas")]
     [SerializeField] private GameObject escena1;
@@ -83,6 +86,7 @@ public class CamaraScript : MonoBehaviour
                 {
                     if (!nivelActivado)
                     {
+
                         nivelActivado = true;
                         escena1.SetActive(true);
                         GameManager.SetNivelActual(0);
@@ -97,6 +101,7 @@ public class CamaraScript : MonoBehaviour
                 {
                     if (!nivelActivado)
                     {
+                        IO.SumarTRampa5();
                         nivelActivado = true;
                         GameManager1.SetActive(false);
                         ruleta.SetActive(true);
@@ -126,6 +131,7 @@ public class CamaraScript : MonoBehaviour
                 {
                     if (!nivelActivado)
                     {
+                        IO.SumarTRampa7();
                         nivelActivado = true;
                         GameManager2.SetActive(false);
                         ruleta.SetActive(true);
@@ -135,6 +141,7 @@ public class CamaraScript : MonoBehaviour
 
             case 6:
                 destino = Punto6.transform.position;
+
                 if (LlegoAlDestino())
                 {
                     if (!nivelActivado)
@@ -147,6 +154,9 @@ public class CamaraScript : MonoBehaviour
                         GameManager3.SetActive(true);
                     }
                 }
+                break;
+            case 7:
+                destino = Punto7.transform.position;
                 break;
         }
 
@@ -168,7 +178,7 @@ public class CamaraScript : MonoBehaviour
         puntoActual++;
         nivelActivado = false;
 
-        if (puntoActual > 6)
+        if (puntoActual > 7)
             puntoActual = 1;
     }
 }
